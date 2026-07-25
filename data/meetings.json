@@ -108,5 +108,2295 @@
       "meetingConclusion": "SQL is best suited for structured, relational data needs, whereas NoSQL offers greater schema flexibility for dynamic, unstructured datasets.",
       "analyzedAt": "2026-07-25T12:43:43.021Z"
     }
+  },
+  {
+    "id": "meet_1784991154025",
+    "title": "Google Meet Session (Jul 25, 08:22 PM)",
+    "meetUrl": "https://meet.google.com/pzj-iujm-nwh",
+    "status": "error",
+    "startTime": "2026-07-25T14:52:34.034Z",
+    "durationSeconds": 0,
+    "transcript": [],
+    "botConfig": {
+      "botName": "AI Meeting Assistant",
+      "autoMuteMic": true,
+      "autoMuteCam": true
+    },
+    "logs": [
+      {
+        "id": "wg25270",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "Closed Puppeteer browser instance.",
+        "source": "browser"
+      },
+      {
+        "id": "415rcaj",
+        "timestamp": "20:22:36",
+        "level": "error",
+        "message": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
+        "source": "system"
+      },
+      {
+        "id": "lp46304",
+        "timestamp": "20:22:36",
+        "level": "error",
+        "message": "Error: Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.\n    at BotAutomationService.launchBrowser (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:258:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async BotAutomationService.runBrowserJoinProcess (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:165:7)",
+        "source": "browser"
+      },
+      {
+        "id": "az74960",
+        "timestamp": "20:22:36",
+        "level": "warn",
+        "message": "Cannot capture \"error\" screenshot: no open page",
+        "source": "browser"
+      },
+      {
+        "id": "beqqb5y",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "yh69jdo",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "6u6dhut",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "mlcin20",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tlyoi9g",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "syzgeys",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "u4u7f0f",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Browser launch options: {\"headless\":false,\"userDataDir\":\"C:\\\\Users\\\\adhis\\\\AppData\\\\Local\\\\Google\\\\Chrome\\\\User Data\",\"executablePath\":\"C:\\\\Users\\\\adhis\\\\.cache\\\\puppeteer\\\\chrome\\\\win64-150.0.7871.24\\\\chrome-win64\\\\chrome.exe\",\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\",\"--use-fake-ui-for-media-stream\",\"--autoplay-policy=no-user-gesture-required\",\"--disable-blink-features=AutomationControlled\",\"--disable-notifications\",\"--disable-geolocation\",\"--window-size=1280,800\"]}",
+        "source": "browser"
+      },
+      {
+        "id": "dbsxog9",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "User data directory: C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data",
+        "source": "browser"
+      },
+      {
+        "id": "wopn0ht",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Chrome executable path: C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe",
+        "source": "browser"
+      },
+      {
+        "id": "1til7eq",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Env: MEET_BOT_HEADLESS=false MEET_BOT_USER_DATA_DIR=C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data MEET_BOT_CHROME_PATH=(unset)",
+        "source": "browser"
+      },
+      {
+        "id": "0aj8htf",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "8wzfp5m",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "9yl6wrz",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Initiating bot join sequence for URL: https://meet.google.com/pzj-iujm-nwh",
+        "source": "join"
+      },
+      {
+        "id": "xyg7mx3",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Meet URL validated: https://meet.google.com/pzj-iujm-nwh",
+        "source": "join"
+      },
+      {
+        "id": "gmg1ndm",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "API request received: POST /api/meetings/join meetUrl=https://meet.google.com/pzj-iujm-nwh botName=AI Meeting Assistant autoMuteMic=true autoMuteCam=true",
+        "source": "join"
+      },
+      {
+        "id": "8hzko0j",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "POST /api/meetings/join",
+        "source": "system"
+      },
+      {
+        "id": "4qhs90k",
+        "timestamp": "20:22:32",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "wlybcp2",
+        "timestamp": "20:22:32",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wyszitl",
+        "timestamp": "20:22:30",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "t8s18kt",
+        "timestamp": "20:22:30",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "jmeoap8",
+        "timestamp": "20:22:28",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "jh63qeg",
+        "timestamp": "20:22:28",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "lo6wixg",
+        "timestamp": "20:22:27",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "06idvp7",
+        "timestamp": "20:22:26",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wmc2hz8",
+        "timestamp": "20:22:24",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "7u98qrg",
+        "timestamp": "20:22:24",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "dypvy4i",
+        "timestamp": "20:22:22",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ljsbkoz",
+        "timestamp": "20:22:22",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "fzz5rt3",
+        "timestamp": "20:22:20",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "0t1j9nk",
+        "timestamp": "20:22:20",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "7hfg7li",
+        "timestamp": "20:22:18",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "55buatq",
+        "timestamp": "20:22:18",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "yimzcpz",
+        "timestamp": "20:22:16",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tifcjyx",
+        "timestamp": "20:22:16",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "virv2yc",
+        "timestamp": "20:22:14",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tcxg5uy",
+        "timestamp": "20:22:14",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "xr6nl2s",
+        "timestamp": "20:22:12",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "7wc7dk7",
+        "timestamp": "20:22:12",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "cw4s2i0",
+        "timestamp": "20:22:10",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "n1jpyjf",
+        "timestamp": "20:22:10",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "tmnhjz2",
+        "timestamp": "20:22:08",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "m0gfmd4",
+        "timestamp": "20:22:08",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ot2smd2",
+        "timestamp": "20:22:06",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "hyc41lm",
+        "timestamp": "20:22:06",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "52pgi51",
+        "timestamp": "20:22:04",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "89o1eke",
+        "timestamp": "20:22:04",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "77oxsj5",
+        "timestamp": "20:22:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ft14982",
+        "timestamp": "20:22:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "pgi6nxq",
+        "timestamp": "20:22:00",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "o0eaoxm",
+        "timestamp": "20:22:00",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ygvfuo3",
+        "timestamp": "20:21:58",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "qd1trpk",
+        "timestamp": "20:21:58",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ejqpn0j",
+        "timestamp": "20:21:56",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "b6xkwiq",
+        "timestamp": "20:21:56",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "g3c0co9",
+        "timestamp": "20:21:54",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "m7o0mzu",
+        "timestamp": "20:21:54",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "g0aduce",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "cqton0c",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "hwvp0y3",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wyzv6gw",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "jfcrupi",
+        "timestamp": "20:21:38",
+        "level": "success",
+        "message": "🚀 AI Google Meet Bot Server running at http://0.0.0.0:3000",
+        "source": "system"
+      },
+      {
+        "id": "y2cz931",
+        "timestamp": "20:21:37",
+        "level": "info",
+        "message": "Starting Vite development middleware on port 3000...",
+        "source": "system"
+      },
+      {
+        "id": "7x9blwr",
+        "timestamp": "20:21:36",
+        "level": "info",
+        "message": "Loaded 1 meetings from database file",
+        "source": "system"
+      }
+    ],
+    "createdAt": "2026-07-25T14:52:34.034Z",
+    "errorMessage": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
+    "endTime": "2026-07-25T14:52:36.816Z"
+  },
+  {
+    "id": "meet_1784991182001",
+    "title": "Google Meet Session (Jul 25, 08:23 PM)",
+    "meetUrl": "https://meet.google.com/bun-zazq-ccb",
+    "status": "error",
+    "startTime": "2026-07-25T14:53:02.001Z",
+    "durationSeconds": 0,
+    "transcript": [],
+    "botConfig": {
+      "botName": "AI Meeting Assistant",
+      "autoMuteMic": true,
+      "autoMuteCam": true
+    },
+    "logs": [
+      {
+        "id": "5cg035c",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Closed Puppeteer browser instance.",
+        "source": "browser"
+      },
+      {
+        "id": "6gx65vv",
+        "timestamp": "20:23:02",
+        "level": "error",
+        "message": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
+        "source": "system"
+      },
+      {
+        "id": "wbtm9t7",
+        "timestamp": "20:23:02",
+        "level": "error",
+        "message": "Error: Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.\n    at BotAutomationService.launchBrowser (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:258:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async BotAutomationService.runBrowserJoinProcess (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:165:7)",
+        "source": "browser"
+      },
+      {
+        "id": "oywhkki",
+        "timestamp": "20:23:02",
+        "level": "warn",
+        "message": "Cannot capture \"error\" screenshot: no open page",
+        "source": "browser"
+      },
+      {
+        "id": "72l3r79",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "lnsx888",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "oyao4ml",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "zohslkb",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "3yk2fpo",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Browser launch options: {\"headless\":false,\"userDataDir\":\"C:\\\\Users\\\\adhis\\\\AppData\\\\Local\\\\Google\\\\Chrome\\\\User Data\",\"executablePath\":\"C:\\\\Users\\\\adhis\\\\.cache\\\\puppeteer\\\\chrome\\\\win64-150.0.7871.24\\\\chrome-win64\\\\chrome.exe\",\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\",\"--use-fake-ui-for-media-stream\",\"--autoplay-policy=no-user-gesture-required\",\"--disable-blink-features=AutomationControlled\",\"--disable-notifications\",\"--disable-geolocation\",\"--window-size=1280,800\"]}",
+        "source": "browser"
+      },
+      {
+        "id": "ytl8b7j",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "User data directory: C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data",
+        "source": "browser"
+      },
+      {
+        "id": "o81vqqx",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Chrome executable path: C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe",
+        "source": "browser"
+      },
+      {
+        "id": "vf7jl00",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Env: MEET_BOT_HEADLESS=false MEET_BOT_USER_DATA_DIR=C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data MEET_BOT_CHROME_PATH=(unset)",
+        "source": "browser"
+      },
+      {
+        "id": "96mqcdg",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "th9mxh4",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "tc3hjlc",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Initiating bot join sequence for URL: https://meet.google.com/bun-zazq-ccb",
+        "source": "join"
+      },
+      {
+        "id": "7xwbv4p",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Meet URL validated: https://meet.google.com/bun-zazq-ccb",
+        "source": "join"
+      },
+      {
+        "id": "zto41ci",
+        "timestamp": "20:23:01",
+        "level": "info",
+        "message": "API request received: POST /api/meetings/join meetUrl=https://meet.google.com/bun-zazq-ccb botName=AI Meeting Assistant autoMuteMic=true autoMuteCam=true",
+        "source": "join"
+      },
+      {
+        "id": "1j1hrj0",
+        "timestamp": "20:23:01",
+        "level": "info",
+        "message": "POST /api/meetings/join",
+        "source": "system"
+      },
+      {
+        "id": "j30aeh1",
+        "timestamp": "20:23:01",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "0urbk5i",
+        "timestamp": "20:23:01",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "f5damhh",
+        "timestamp": "20:22:59",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "kr5l4ld",
+        "timestamp": "20:22:59",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "t3i2rcx",
+        "timestamp": "20:22:57",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "opruwdp",
+        "timestamp": "20:22:57",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "lpw5g89",
+        "timestamp": "20:22:55",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "93vp1cr",
+        "timestamp": "20:22:55",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "gur5ia8",
+        "timestamp": "20:22:53",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "w6cl0hy",
+        "timestamp": "20:22:53",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "fjdg38t",
+        "timestamp": "20:22:51",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "khw9bwh",
+        "timestamp": "20:22:51",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "t4mxn9x",
+        "timestamp": "20:22:49",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "zhsa48b",
+        "timestamp": "20:22:49",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "6gg2t0t",
+        "timestamp": "20:22:47",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "e424or4",
+        "timestamp": "20:22:47",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "dlwnwn3",
+        "timestamp": "20:22:45",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "79ww63r",
+        "timestamp": "20:22:45",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "nzjug79",
+        "timestamp": "20:22:43",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "0mgl4bk",
+        "timestamp": "20:22:43",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "g182ukz",
+        "timestamp": "20:22:41",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "10ju0yj",
+        "timestamp": "20:22:41",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "xsw0nj2",
+        "timestamp": "20:22:39",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "1dcs2po",
+        "timestamp": "20:22:39",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "jqs9gq1",
+        "timestamp": "20:22:37",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "6e2lzw0",
+        "timestamp": "20:22:37",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tsqremw",
+        "timestamp": "20:22:37",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "j9y41wc",
+        "timestamp": "20:22:37",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wg25270",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "Closed Puppeteer browser instance.",
+        "source": "browser"
+      },
+      {
+        "id": "415rcaj",
+        "timestamp": "20:22:36",
+        "level": "error",
+        "message": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
+        "source": "system"
+      },
+      {
+        "id": "lp46304",
+        "timestamp": "20:22:36",
+        "level": "error",
+        "message": "Error: Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.\n    at BotAutomationService.launchBrowser (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:258:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async BotAutomationService.runBrowserJoinProcess (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:165:7)",
+        "source": "browser"
+      },
+      {
+        "id": "az74960",
+        "timestamp": "20:22:36",
+        "level": "warn",
+        "message": "Cannot capture \"error\" screenshot: no open page",
+        "source": "browser"
+      },
+      {
+        "id": "beqqb5y",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "yh69jdo",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "6u6dhut",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "mlcin20",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tlyoi9g",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "syzgeys",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "u4u7f0f",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Browser launch options: {\"headless\":false,\"userDataDir\":\"C:\\\\Users\\\\adhis\\\\AppData\\\\Local\\\\Google\\\\Chrome\\\\User Data\",\"executablePath\":\"C:\\\\Users\\\\adhis\\\\.cache\\\\puppeteer\\\\chrome\\\\win64-150.0.7871.24\\\\chrome-win64\\\\chrome.exe\",\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\",\"--use-fake-ui-for-media-stream\",\"--autoplay-policy=no-user-gesture-required\",\"--disable-blink-features=AutomationControlled\",\"--disable-notifications\",\"--disable-geolocation\",\"--window-size=1280,800\"]}",
+        "source": "browser"
+      },
+      {
+        "id": "dbsxog9",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "User data directory: C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data",
+        "source": "browser"
+      },
+      {
+        "id": "wopn0ht",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Chrome executable path: C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe",
+        "source": "browser"
+      },
+      {
+        "id": "1til7eq",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Env: MEET_BOT_HEADLESS=false MEET_BOT_USER_DATA_DIR=C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data MEET_BOT_CHROME_PATH=(unset)",
+        "source": "browser"
+      },
+      {
+        "id": "0aj8htf",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "8wzfp5m",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "9yl6wrz",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Initiating bot join sequence for URL: https://meet.google.com/pzj-iujm-nwh",
+        "source": "join"
+      },
+      {
+        "id": "xyg7mx3",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Meet URL validated: https://meet.google.com/pzj-iujm-nwh",
+        "source": "join"
+      },
+      {
+        "id": "gmg1ndm",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "API request received: POST /api/meetings/join meetUrl=https://meet.google.com/pzj-iujm-nwh botName=AI Meeting Assistant autoMuteMic=true autoMuteCam=true",
+        "source": "join"
+      },
+      {
+        "id": "8hzko0j",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "POST /api/meetings/join",
+        "source": "system"
+      },
+      {
+        "id": "4qhs90k",
+        "timestamp": "20:22:32",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "wlybcp2",
+        "timestamp": "20:22:32",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wyszitl",
+        "timestamp": "20:22:30",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "t8s18kt",
+        "timestamp": "20:22:30",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "jmeoap8",
+        "timestamp": "20:22:28",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "jh63qeg",
+        "timestamp": "20:22:28",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "lo6wixg",
+        "timestamp": "20:22:27",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "06idvp7",
+        "timestamp": "20:22:26",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wmc2hz8",
+        "timestamp": "20:22:24",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "7u98qrg",
+        "timestamp": "20:22:24",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "dypvy4i",
+        "timestamp": "20:22:22",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ljsbkoz",
+        "timestamp": "20:22:22",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "fzz5rt3",
+        "timestamp": "20:22:20",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "0t1j9nk",
+        "timestamp": "20:22:20",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "7hfg7li",
+        "timestamp": "20:22:18",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "55buatq",
+        "timestamp": "20:22:18",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "yimzcpz",
+        "timestamp": "20:22:16",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tifcjyx",
+        "timestamp": "20:22:16",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "virv2yc",
+        "timestamp": "20:22:14",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tcxg5uy",
+        "timestamp": "20:22:14",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "xr6nl2s",
+        "timestamp": "20:22:12",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "7wc7dk7",
+        "timestamp": "20:22:12",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "cw4s2i0",
+        "timestamp": "20:22:10",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "n1jpyjf",
+        "timestamp": "20:22:10",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "tmnhjz2",
+        "timestamp": "20:22:08",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "m0gfmd4",
+        "timestamp": "20:22:08",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ot2smd2",
+        "timestamp": "20:22:06",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "hyc41lm",
+        "timestamp": "20:22:06",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "52pgi51",
+        "timestamp": "20:22:04",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "89o1eke",
+        "timestamp": "20:22:04",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "77oxsj5",
+        "timestamp": "20:22:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ft14982",
+        "timestamp": "20:22:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "pgi6nxq",
+        "timestamp": "20:22:00",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "o0eaoxm",
+        "timestamp": "20:22:00",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ygvfuo3",
+        "timestamp": "20:21:58",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "qd1trpk",
+        "timestamp": "20:21:58",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ejqpn0j",
+        "timestamp": "20:21:56",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "b6xkwiq",
+        "timestamp": "20:21:56",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "g3c0co9",
+        "timestamp": "20:21:54",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "m7o0mzu",
+        "timestamp": "20:21:54",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "g0aduce",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "cqton0c",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "hwvp0y3",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wyzv6gw",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "jfcrupi",
+        "timestamp": "20:21:38",
+        "level": "success",
+        "message": "🚀 AI Google Meet Bot Server running at http://0.0.0.0:3000",
+        "source": "system"
+      },
+      {
+        "id": "y2cz931",
+        "timestamp": "20:21:37",
+        "level": "info",
+        "message": "Starting Vite development middleware on port 3000...",
+        "source": "system"
+      },
+      {
+        "id": "7x9blwr",
+        "timestamp": "20:21:36",
+        "level": "info",
+        "message": "Loaded 1 meetings from database file",
+        "source": "system"
+      }
+    ],
+    "createdAt": "2026-07-25T14:53:02.001Z",
+    "errorMessage": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
+    "endTime": "2026-07-25T14:53:02.663Z"
+  },
+  {
+    "id": "meet_1784991188210",
+    "title": "Google Meet Session (Jul 25, 08:23 PM)",
+    "meetUrl": "https://meet.google.com/deo-koeq-hcb",
+    "status": "error",
+    "startTime": "2026-07-25T14:53:08.210Z",
+    "durationSeconds": 0,
+    "transcript": [],
+    "botConfig": {
+      "botName": "AI Meeting Assistant",
+      "autoMuteMic": true,
+      "autoMuteCam": true
+    },
+    "logs": [
+      {
+        "id": "wyw8i3t",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "Closed Puppeteer browser instance.",
+        "source": "browser"
+      },
+      {
+        "id": "37uaofm",
+        "timestamp": "20:23:08",
+        "level": "error",
+        "message": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
+        "source": "system"
+      },
+      {
+        "id": "39cn1cy",
+        "timestamp": "20:23:08",
+        "level": "error",
+        "message": "Error: Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.\n    at BotAutomationService.launchBrowser (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:258:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async BotAutomationService.runBrowserJoinProcess (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:165:7)",
+        "source": "browser"
+      },
+      {
+        "id": "qs3pm2t",
+        "timestamp": "20:23:08",
+        "level": "warn",
+        "message": "Cannot capture \"error\" screenshot: no open page",
+        "source": "browser"
+      },
+      {
+        "id": "64z3s4c",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "d7cvug7",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "l7tskwb",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "saieuft",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "0jtjino",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "Browser launch options: {\"headless\":false,\"userDataDir\":\"C:\\\\Users\\\\adhis\\\\AppData\\\\Local\\\\Google\\\\Chrome\\\\User Data\",\"executablePath\":\"C:\\\\Users\\\\adhis\\\\.cache\\\\puppeteer\\\\chrome\\\\win64-150.0.7871.24\\\\chrome-win64\\\\chrome.exe\",\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\",\"--use-fake-ui-for-media-stream\",\"--autoplay-policy=no-user-gesture-required\",\"--disable-blink-features=AutomationControlled\",\"--disable-notifications\",\"--disable-geolocation\",\"--window-size=1280,800\"]}",
+        "source": "browser"
+      },
+      {
+        "id": "i08v2m6",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "User data directory: C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data",
+        "source": "browser"
+      },
+      {
+        "id": "81amb60",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "Chrome executable path: C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe",
+        "source": "browser"
+      },
+      {
+        "id": "5txhhk5",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "Env: MEET_BOT_HEADLESS=false MEET_BOT_USER_DATA_DIR=C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data MEET_BOT_CHROME_PATH=(unset)",
+        "source": "browser"
+      },
+      {
+        "id": "4wepwo3",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "5vd153r",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "6yhecpn",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "Initiating bot join sequence for URL: https://meet.google.com/deo-koeq-hcb",
+        "source": "join"
+      },
+      {
+        "id": "wn65n26",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "Meet URL validated: https://meet.google.com/deo-koeq-hcb",
+        "source": "join"
+      },
+      {
+        "id": "sogebkt",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "API request received: POST /api/meetings/join meetUrl=https://meet.google.com/deo-koeq-hcb botName=AI Meeting Assistant autoMuteMic=true autoMuteCam=true",
+        "source": "join"
+      },
+      {
+        "id": "fp4hhom",
+        "timestamp": "20:23:08",
+        "level": "info",
+        "message": "POST /api/meetings/join",
+        "source": "system"
+      },
+      {
+        "id": "egvfvhu",
+        "timestamp": "20:23:06",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "4mgmn72",
+        "timestamp": "20:23:06",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "uazl8ux",
+        "timestamp": "20:23:04",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "c6okf7f",
+        "timestamp": "20:23:04",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "2y3r73w",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "p1sirhn",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "556l5z7",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "edt36ic",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "5cg035c",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Closed Puppeteer browser instance.",
+        "source": "browser"
+      },
+      {
+        "id": "6gx65vv",
+        "timestamp": "20:23:02",
+        "level": "error",
+        "message": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
+        "source": "system"
+      },
+      {
+        "id": "wbtm9t7",
+        "timestamp": "20:23:02",
+        "level": "error",
+        "message": "Error: Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.\n    at BotAutomationService.launchBrowser (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:258:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async BotAutomationService.runBrowserJoinProcess (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:165:7)",
+        "source": "browser"
+      },
+      {
+        "id": "oywhkki",
+        "timestamp": "20:23:02",
+        "level": "warn",
+        "message": "Cannot capture \"error\" screenshot: no open page",
+        "source": "browser"
+      },
+      {
+        "id": "72l3r79",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "lnsx888",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "oyao4ml",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "zohslkb",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "3yk2fpo",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Browser launch options: {\"headless\":false,\"userDataDir\":\"C:\\\\Users\\\\adhis\\\\AppData\\\\Local\\\\Google\\\\Chrome\\\\User Data\",\"executablePath\":\"C:\\\\Users\\\\adhis\\\\.cache\\\\puppeteer\\\\chrome\\\\win64-150.0.7871.24\\\\chrome-win64\\\\chrome.exe\",\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\",\"--use-fake-ui-for-media-stream\",\"--autoplay-policy=no-user-gesture-required\",\"--disable-blink-features=AutomationControlled\",\"--disable-notifications\",\"--disable-geolocation\",\"--window-size=1280,800\"]}",
+        "source": "browser"
+      },
+      {
+        "id": "ytl8b7j",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "User data directory: C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data",
+        "source": "browser"
+      },
+      {
+        "id": "o81vqqx",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Chrome executable path: C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe",
+        "source": "browser"
+      },
+      {
+        "id": "vf7jl00",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Env: MEET_BOT_HEADLESS=false MEET_BOT_USER_DATA_DIR=C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data MEET_BOT_CHROME_PATH=(unset)",
+        "source": "browser"
+      },
+      {
+        "id": "96mqcdg",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "th9mxh4",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "tc3hjlc",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Initiating bot join sequence for URL: https://meet.google.com/bun-zazq-ccb",
+        "source": "join"
+      },
+      {
+        "id": "7xwbv4p",
+        "timestamp": "20:23:02",
+        "level": "info",
+        "message": "Meet URL validated: https://meet.google.com/bun-zazq-ccb",
+        "source": "join"
+      },
+      {
+        "id": "zto41ci",
+        "timestamp": "20:23:01",
+        "level": "info",
+        "message": "API request received: POST /api/meetings/join meetUrl=https://meet.google.com/bun-zazq-ccb botName=AI Meeting Assistant autoMuteMic=true autoMuteCam=true",
+        "source": "join"
+      },
+      {
+        "id": "1j1hrj0",
+        "timestamp": "20:23:01",
+        "level": "info",
+        "message": "POST /api/meetings/join",
+        "source": "system"
+      },
+      {
+        "id": "j30aeh1",
+        "timestamp": "20:23:01",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "0urbk5i",
+        "timestamp": "20:23:01",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "f5damhh",
+        "timestamp": "20:22:59",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "kr5l4ld",
+        "timestamp": "20:22:59",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "t3i2rcx",
+        "timestamp": "20:22:57",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "opruwdp",
+        "timestamp": "20:22:57",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "lpw5g89",
+        "timestamp": "20:22:55",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "93vp1cr",
+        "timestamp": "20:22:55",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "gur5ia8",
+        "timestamp": "20:22:53",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "w6cl0hy",
+        "timestamp": "20:22:53",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "fjdg38t",
+        "timestamp": "20:22:51",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "khw9bwh",
+        "timestamp": "20:22:51",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "t4mxn9x",
+        "timestamp": "20:22:49",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "zhsa48b",
+        "timestamp": "20:22:49",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "6gg2t0t",
+        "timestamp": "20:22:47",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "e424or4",
+        "timestamp": "20:22:47",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "dlwnwn3",
+        "timestamp": "20:22:45",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "79ww63r",
+        "timestamp": "20:22:45",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "nzjug79",
+        "timestamp": "20:22:43",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "0mgl4bk",
+        "timestamp": "20:22:43",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "g182ukz",
+        "timestamp": "20:22:41",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "10ju0yj",
+        "timestamp": "20:22:41",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "xsw0nj2",
+        "timestamp": "20:22:39",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "1dcs2po",
+        "timestamp": "20:22:39",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "jqs9gq1",
+        "timestamp": "20:22:37",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "6e2lzw0",
+        "timestamp": "20:22:37",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tsqremw",
+        "timestamp": "20:22:37",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "j9y41wc",
+        "timestamp": "20:22:37",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wg25270",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "Closed Puppeteer browser instance.",
+        "source": "browser"
+      },
+      {
+        "id": "415rcaj",
+        "timestamp": "20:22:36",
+        "level": "error",
+        "message": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
+        "source": "system"
+      },
+      {
+        "id": "lp46304",
+        "timestamp": "20:22:36",
+        "level": "error",
+        "message": "Error: Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.\n    at BotAutomationService.launchBrowser (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:258:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async BotAutomationService.runBrowserJoinProcess (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:165:7)",
+        "source": "browser"
+      },
+      {
+        "id": "az74960",
+        "timestamp": "20:22:36",
+        "level": "warn",
+        "message": "Cannot capture \"error\" screenshot: no open page",
+        "source": "browser"
+      },
+      {
+        "id": "beqqb5y",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "yh69jdo",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "6u6dhut",
+        "timestamp": "20:22:36",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "mlcin20",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tlyoi9g",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "syzgeys",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "u4u7f0f",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Browser launch options: {\"headless\":false,\"userDataDir\":\"C:\\\\Users\\\\adhis\\\\AppData\\\\Local\\\\Google\\\\Chrome\\\\User Data\",\"executablePath\":\"C:\\\\Users\\\\adhis\\\\.cache\\\\puppeteer\\\\chrome\\\\win64-150.0.7871.24\\\\chrome-win64\\\\chrome.exe\",\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\",\"--use-fake-ui-for-media-stream\",\"--autoplay-policy=no-user-gesture-required\",\"--disable-blink-features=AutomationControlled\",\"--disable-notifications\",\"--disable-geolocation\",\"--window-size=1280,800\"]}",
+        "source": "browser"
+      },
+      {
+        "id": "dbsxog9",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "User data directory: C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data",
+        "source": "browser"
+      },
+      {
+        "id": "wopn0ht",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Chrome executable path: C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe",
+        "source": "browser"
+      },
+      {
+        "id": "1til7eq",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Env: MEET_BOT_HEADLESS=false MEET_BOT_USER_DATA_DIR=C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data MEET_BOT_CHROME_PATH=(unset)",
+        "source": "browser"
+      },
+      {
+        "id": "0aj8htf",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "8wzfp5m",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "9yl6wrz",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Initiating bot join sequence for URL: https://meet.google.com/pzj-iujm-nwh",
+        "source": "join"
+      },
+      {
+        "id": "xyg7mx3",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "Meet URL validated: https://meet.google.com/pzj-iujm-nwh",
+        "source": "join"
+      },
+      {
+        "id": "gmg1ndm",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "API request received: POST /api/meetings/join meetUrl=https://meet.google.com/pzj-iujm-nwh botName=AI Meeting Assistant autoMuteMic=true autoMuteCam=true",
+        "source": "join"
+      },
+      {
+        "id": "8hzko0j",
+        "timestamp": "20:22:34",
+        "level": "info",
+        "message": "POST /api/meetings/join",
+        "source": "system"
+      },
+      {
+        "id": "4qhs90k",
+        "timestamp": "20:22:32",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "wlybcp2",
+        "timestamp": "20:22:32",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wyszitl",
+        "timestamp": "20:22:30",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "t8s18kt",
+        "timestamp": "20:22:30",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "jmeoap8",
+        "timestamp": "20:22:28",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "jh63qeg",
+        "timestamp": "20:22:28",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "lo6wixg",
+        "timestamp": "20:22:27",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "06idvp7",
+        "timestamp": "20:22:26",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wmc2hz8",
+        "timestamp": "20:22:24",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "7u98qrg",
+        "timestamp": "20:22:24",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "dypvy4i",
+        "timestamp": "20:22:22",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ljsbkoz",
+        "timestamp": "20:22:22",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "fzz5rt3",
+        "timestamp": "20:22:20",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "0t1j9nk",
+        "timestamp": "20:22:20",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "7hfg7li",
+        "timestamp": "20:22:18",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "55buatq",
+        "timestamp": "20:22:18",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "yimzcpz",
+        "timestamp": "20:22:16",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tifcjyx",
+        "timestamp": "20:22:16",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "virv2yc",
+        "timestamp": "20:22:14",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "tcxg5uy",
+        "timestamp": "20:22:14",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "xr6nl2s",
+        "timestamp": "20:22:12",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "7wc7dk7",
+        "timestamp": "20:22:12",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "cw4s2i0",
+        "timestamp": "20:22:10",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "n1jpyjf",
+        "timestamp": "20:22:10",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "tmnhjz2",
+        "timestamp": "20:22:08",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "m0gfmd4",
+        "timestamp": "20:22:08",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ot2smd2",
+        "timestamp": "20:22:06",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "hyc41lm",
+        "timestamp": "20:22:06",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "52pgi51",
+        "timestamp": "20:22:04",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "89o1eke",
+        "timestamp": "20:22:04",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "77oxsj5",
+        "timestamp": "20:22:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ft14982",
+        "timestamp": "20:22:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "pgi6nxq",
+        "timestamp": "20:22:00",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "o0eaoxm",
+        "timestamp": "20:22:00",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ygvfuo3",
+        "timestamp": "20:21:58",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "qd1trpk",
+        "timestamp": "20:21:58",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ejqpn0j",
+        "timestamp": "20:21:56",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "b6xkwiq",
+        "timestamp": "20:21:56",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "g3c0co9",
+        "timestamp": "20:21:54",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "m7o0mzu",
+        "timestamp": "20:21:54",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "g0aduce",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "cqton0c",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "hwvp0y3",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wyzv6gw",
+        "timestamp": "20:21:52",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "jfcrupi",
+        "timestamp": "20:21:38",
+        "level": "success",
+        "message": "🚀 AI Google Meet Bot Server running at http://0.0.0.0:3000",
+        "source": "system"
+      },
+      {
+        "id": "y2cz931",
+        "timestamp": "20:21:37",
+        "level": "info",
+        "message": "Starting Vite development middleware on port 3000...",
+        "source": "system"
+      },
+      {
+        "id": "7x9blwr",
+        "timestamp": "20:21:36",
+        "level": "info",
+        "message": "Loaded 1 meetings from database file",
+        "source": "system"
+      }
+    ],
+    "createdAt": "2026-07-25T14:53:08.210Z",
+    "errorMessage": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
+    "endTime": "2026-07-25T14:53:08.745Z"
   }
 ]
