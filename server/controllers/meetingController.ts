@@ -9,6 +9,10 @@ export class MeetingController {
   public async joinMeeting(req: Request, res: Response): Promise<void> {
     try {
       const { meetUrl, botName, autoMuteMic, autoMuteCam } = req.body;
+      logger.info(
+        `API request received: POST /api/meetings/join meetUrl=${meetUrl} botName=${botName} autoMuteMic=${autoMuteMic} autoMuteCam=${autoMuteCam}`,
+        'join'
+      );
 
       if (!meetUrl) {
         res.status(400).json({ error: 'meetUrl is required' });

@@ -72,6 +72,11 @@ export class RecordingService {
     };
     this.states.set(meetingId, state);
 
+    // The dev runner (tsx/esbuild) keeps function names by emitting calls to a `__name`
+    // helper, which does not exist inside the page and made every page.evaluate below
+    // throw "__name is not defined". Injected as a raw string so it is never transpiled.
+    await page.evaluate('globalThis.__name = globalThis.__name || ((fn) => fn)');
+
     await page.exposeFunction('__meetBotOnAudioChunk', (base64Chunk: string) => {
       if (state.stopped || !base64Chunk) return;
       const buffer = Buffer.from(base64Chunk, 'base64');
