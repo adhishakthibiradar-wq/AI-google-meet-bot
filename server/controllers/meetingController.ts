@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { TranscriptSegment } from '../../src/types.js';
 import { db } from '../database/db.js';
 import { aiAnalysisService } from '../services/aiAnalysisService.js';
 import { botAutomationService } from '../services/botAutomationService.js';
@@ -79,16 +80,6 @@ export class MeetingController {
     res.status(200).json({ message: 'Meeting deleted successfully', id });
   }
 
-  public async simulateMeeting(req: Request, res: Response): Promise<void> {
-    try {
-      const { title, transcript } = req.body;
-      const meeting = await botAutomationService.simulateMeeting(title, transcript);
-      res.status(201).json({ message: 'Simulated meeting created', meeting });
-    } catch (err: any) {
-      res.status(500).json({ error: err?.message || 'Failed to simulate meeting' });
-    }
-  }
-
   public async reanalyzeMeeting(req: Request, res: Response): Promise<void> {
     try {
       const { id } = req.params;
@@ -132,13 +123,13 @@ export class MeetingController {
 
         const newMeeting = db.saveMeeting({
           id: meetingId,
-          meetUrl: 'https://meet.google.com/uploaded-recording',
+          meetUrl: '',
           title: meetingTitle,
           status: 'completed',
           startTime: new Date().toISOString(),
           createdAt: new Date().toISOString(),
-          durationSeconds: Math.max(120, transcript.length * 15),
-          audioSizeMb: audioSizeMb || 3.5,
+          durationSeconds: transcript[transcript.length - 1]?.startTimeSeconds ?? 0,
+          audioSizeMb,
           botConfig: {
             botName: 'Speech-To-Text AI Analyst',
             autoMuteMic: true,
@@ -164,31 +155,54 @@ export class MeetingController {
         return;
       }
 
-      let parsedSegments = [];
-      if (textTranscript && typeof textTranscript === 'string') {
-        const lines = textTranscript.split('\n').filter((l) => l.trim().length > 0);
-        parsedSegments = lines.map((line, idx) => {
-          let speaker = 'Speaker';
-          let text = line;
-          if (line.includes(':')) {
-            const parts = line.split(':');
-            speaker = parts[0].trim();
-            text = parts.slice(1).join(':').trim();
-          }
-          const minutes = Math.floor((idx * 15) / 60);
-          const seconds = (idx * 15) % 60;
-          const timestamp = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-          return {
-            id: `seg-${idx}`,
-            speaker,
-            timestamp,
-            startTimeSeconds: idx * 15,
-            text,
-          };
+      if (!textTranscript || typeof textTranscript !== 'string' || !textTranscript.trim()) {
+        res.status(400).json({
+          error: 'An audio recording (audioBase64) or a text transcript is required.',
         });
+        return;
       }
 
-      const meeting = await botAutomationService.simulateMeeting(meetingTitle, parsedSegments);
+      const lines = textTranscript.split('\n').filter((l) => l.trim().length > 0);
+      const parsedSegments: TranscriptSegment[] = lines.map((line, idx) => {
+        let speaker = 'Speaker';
+        let text = line;
+        if (line.includes(':')) {
+          const parts = line.split(':');
+          speaker = parts[0].trim();
+          text = parts.slice(1).join(':').trim();
+        }
+        const minutes = Math.floor((idx * 15) / 60);
+        const seconds = (idx * 15) % 60;
+        const timestamp = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        return {
+          id: `seg-${idx}`,
+          speaker,
+          timestamp,
+          startTimeSeconds: idx * 15,
+          text,
+        };
+      });
+
+      const summary = await aiAnalysisService.analyzeTranscript(parsedSegments, meetingTitle);
+
+      const meeting = db.saveMeeting({
+        id: meetingId,
+        meetUrl: '',
+        title: meetingTitle,
+        status: 'completed',
+        startTime: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
+        durationSeconds: 0,
+        botConfig: {
+          botName: 'Transcript AI Analyst',
+          autoMuteMic: true,
+          autoMuteCam: true,
+        },
+        logs: logger.getLogs(),
+        transcript: parsedSegments,
+        summary,
+      });
+
       res.status(200).json({ message: 'Transcript processed successfully', meeting });
     } catch (err: any) {
       logger.error(`Upload processing error: ${err?.message || err}`, 'ai');

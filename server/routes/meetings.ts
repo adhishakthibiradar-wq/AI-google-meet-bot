@@ -23,7 +23,6 @@ router.get('/:id', (req, res) => meetingController.getMeetingById(req, res));
 router.delete('/:id', (req, res) => meetingController.deleteMeeting(req, res));
 
 // Additional utility routes
-router.post('/simulate', (req, res) => meetingController.simulateMeeting(req, res));
 router.post('/upload-audio', (req, res) => meetingController.uploadAudio(req, res));
 router.post('/:id/analyze', (req, res) => meetingController.reanalyzeMeeting(req, res));
 

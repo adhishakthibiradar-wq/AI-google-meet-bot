@@ -1,19 +1,20 @@
 import puppeteer, { Browser, Page } from 'puppeteer';
-import { BotLog, BotState, Meeting, TranscriptSegment } from '../../src/types.js';
+import { BotState, Meeting } from '../../src/types.js';
 import { db } from '../database/db.js';
-import { aiAnalysisService } from './aiAnalysisService.js';
-import { recordingService } from './recordingService.js';
+import { recordingService, ActiveRecording } from './recordingService.js';
 import { transcriptionService } from './transcriptionService.js';
 import { logger } from '../utilities/logger.js';
+
+/** Google Meet takes a few seconds to admit the bot and attach participant audio. */
+const JOIN_CONFIRMATION_TIMEOUT_MS = 90_000;
 
 export class BotAutomationService {
   private activeMeetingId: string | null = null;
   private currentState: BotState = 'idle';
   private browser: Browser | null = null;
   private page: Page | null = null;
+  private activeRecording: ActiveRecording | null = null;
   private timerInterval: NodeJS.Timeout | null = null;
-  private audioLevelInterval: NodeJS.Timeout | null = null;
-  private currentAudioLevel = 0;
   private elapsedSeconds = 0;
 
   public validateMeetUrl(url: string): { isValid: boolean; normalizedUrl: string; error?: string } {
@@ -36,13 +37,12 @@ export class BotAutomationService {
         };
       }
 
-      // Check path structure e.g. /abc-defg-hij
-      const pathCode = parsed.pathname.replace(/^\//, '');
-      if (!pathCode || pathCode.length < 3) {
+      const meetingCode = parsed.pathname.replace(/^\//, '');
+      if (!/^[a-z]{3}-[a-z]{4}-[a-z]{3}$/i.test(meetingCode)) {
         return {
           isValid: false,
           normalizedUrl: cleanUrl,
-          error: 'Invalid Google Meet code in URL',
+          error: 'Invalid Google Meet code in URL (expected format: abc-defg-hij)',
         };
       }
 
@@ -63,7 +63,7 @@ export class BotAutomationService {
       currentMeetingId: this.activeMeetingId,
       activeMeeting,
       logs: logger.getLogs().slice(0, 30),
-      audioLevel: this.currentAudioLevel,
+      audioLevel: this.activeMeetingId ? recordingService.getAudioLevel(this.activeMeetingId) : 0,
       elapsedSeconds: this.elapsedSeconds,
     };
   }
@@ -108,8 +108,8 @@ export class BotAutomationService {
     db.saveMeeting(newMeeting);
     logger.info(`Initiating bot join sequence for URL: ${validation.normalizedUrl}`, 'join');
 
-    // Run browser automation asynchronously
-    this.runBrowserJoinProcess(meetingId, validation.normalizedUrl, botName, autoMuteMic, autoMuteCam);
+    // Browser automation runs in the background; the UI polls /status for progress.
+    void this.runBrowserJoinProcess(meetingId, validation.normalizedUrl, botName, autoMuteMic, autoMuteCam);
 
     return newMeeting;
   }
@@ -125,16 +125,18 @@ export class BotAutomationService {
       logger.info('Launching Chromium browser instance with media flags...', 'browser');
 
       this.browser = await puppeteer.launch({
-        headless: true,
+        headless: process.env.MEET_BOT_HEADLESS !== 'false',
+        userDataDir: process.env.MEET_BOT_USER_DATA_DIR || undefined,
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
+          // Auto-accept the mic/camera permission prompt without substituting a
+          // synthetic device, so only real remote participant audio is captured.
           '--use-fake-ui-for-media-stream',
-          '--use-fake-device-for-media-stream',
+          '--autoplay-policy=no-user-gesture-required',
           '--disable-blink-features=AutomationControlled',
           '--disable-notifications',
           '--disable-geolocation',
-          '--allow-insecure-localhost',
         ],
       });
 
@@ -143,172 +145,153 @@ export class BotAutomationService {
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
       );
 
+      const context = this.browser.defaultBrowserContext();
+      await context.overridePermissions('https://meet.google.com', ['microphone', 'camera']);
+
       logger.info(`Navigating to Google Meet: ${meetUrl}`, 'browser');
-      await this.page.goto(meetUrl, { waitUntil: 'networkidle2', timeout: 30000 });
+      await this.page.goto(meetUrl, { waitUntil: 'networkidle2', timeout: 60000 });
 
-      // Handle name entry if requested
-      try {
-        const nameInputSelector = 'input[type="text"][aria-label*="name"], input[placeholder*="Name"]';
-        const nameInput = await this.page.$(nameInputSelector);
-        if (nameInput) {
-          await nameInput.type(botName, { delay: 50 });
-          logger.info(`Entered bot name "${botName}" into Meet prompt`, 'browser');
-        }
-      } catch (err) {
-        // Continue if no name prompt
-      }
+      await this.enterBotName(botName);
+      await this.setPreJoinMedia(autoMuteMic, autoMuteCam);
+      await this.clickJoinButton();
+      await this.waitUntilAdmitted(botName);
 
-      // Pre-join: Mute Mic and Mute Cam
-      if (autoMuteMic) {
-        logger.info('Turning OFF microphone before joining meeting...', 'join');
-        try {
-          await this.page.keyboard.down('Control');
-          await this.page.keyboard.press('d');
-          await this.page.keyboard.up('Control');
-        } catch (e) {
-          logger.warn('Could not trigger Ctrl+D keyboard shortcut for mic', 'join');
-        }
-      }
-
-      if (autoMuteCam) {
-        logger.info('Turning OFF camera before joining meeting...', 'join');
-        try {
-          await this.page.keyboard.down('Control');
-          await this.page.keyboard.press('e');
-          await this.page.keyboard.up('Control');
-        } catch (e) {
-          logger.warn('Could not trigger Ctrl+E keyboard shortcut for camera', 'join');
-        }
-      }
-
-      // Attempt to click "Ask to join" or "Join now"
-      logger.info('Attempting to click "Join now" / "Ask to join" button...', 'join');
-      try {
-        const joinButtons = await this.page.$$('button');
-        for (const btn of joinButtons) {
-          const text = await this.page.evaluate((el) => el.textContent, btn);
-          if (text && (text.includes('Ask to join') || text.includes('Join now') || text.includes('Got it'))) {
-            await btn.click();
-            logger.success(`Clicked Google Meet action button: "${text.trim()}"`, 'join');
-            break;
-          }
-        }
-      } catch (err) {
-        logger.warn('Custom join button click bypassed; entering meeting stream.', 'join');
-      }
-
-      // Update meeting state to in_meeting
       this.currentState = 'in_meeting';
-      logger.success('Bot successfully admitted into Google Meet session!', 'join');
+      logger.success('Bot admitted into the Google Meet session', 'join');
 
-      // Turn on Google Meet Closed Captions and setup live DOM caption scraper
-      try {
-        await this.page.keyboard.press('c');
-        logger.info('Enabled Google Meet Closed Captions for real-time speech capture', 'browser');
-
-        await this.page.evaluate(() => {
-          (window as any).__meetCapturedTranscript = [];
-          const seenTexts = new Set<string>();
-
-          const scrapeCaptions = () => {
-            const captionNodes = Array.from(
-              document.querySelectorAll('div[jscontroller], div[aria-live="polite"] span, div[jsname]')
-            );
-            captionNodes.forEach((node) => {
-              const text = node.textContent?.trim();
-              if (text && text.length > 4 && !seenTexts.has(text)) {
-                const isUi = [
-                  'Join now',
-                  'Ask to join',
-                  'Got it',
-                  'Turn on captions',
-                  'Present now',
-                  'Leave call',
-                  'Microphone',
-                  'Camera',
-                  'Meeting details',
-                  'People',
-                  'Chat',
-                ].some((ui) => text.includes(ui));
-
-                if (!isUi && node.children.length === 0) {
-                  seenTexts.add(text);
-                  const now = new Date();
-                  const timeStr = `${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
-                  (window as any).__meetCapturedTranscript.push({
-                    id: `live-seg-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
-                    speaker: 'Meeting Participant',
-                    timestamp: timeStr,
-                    startTimeSeconds: Math.floor(now.getTime() / 1000),
-                    text: text,
-                  });
-                }
-              }
-            });
-          };
-
-          setInterval(scrapeCaptions, 1000);
-        });
-      } catch (e) {
-        logger.warn('Live caption capture initialized with DOM fallback', 'browser');
-      }
-
-      // Start recording file
-      const recPath = recordingService.createRecordingPlaceholder(meetingId);
+      this.activeRecording = await recordingService.startRecording(this.page, meetingId);
       db.updateMeeting(meetingId, {
         status: 'in_meeting',
-        recordingPath: recPath,
+        recordingPath: this.activeRecording.filePath,
       });
 
-      logger.info('Audio recording started. Recording stream active.', 'recording');
-
-      // Start elapsed timer and audio level meter
-      this.startTimers();
+      this.startTimer();
     } catch (err: any) {
-      logger.error(`Browser join process error: ${err?.message || err}`, 'browser');
-      // If headless browser cannot load external Google Meet login/bot wall, transition gracefully to active meeting stream mode
-      this.currentState = 'in_meeting';
-      const recPath = recordingService.createRecordingPlaceholder(meetingId);
-      db.updateMeeting(meetingId, {
-        status: 'in_meeting',
-        recordingPath: recPath,
-      });
-
-      logger.info('Audio recording started. Recording stream active.', 'recording');
-      this.startTimers();
+      await this.failMeeting(meetingId, err?.message || String(err));
     }
   }
 
-  private startTimers() {
-    this.stopTimers();
+  private async enterBotName(botName: string) {
+    if (!this.page) return;
+    const nameInput = await this.page.$(
+      'input[type="text"][aria-label*="name" i], input[placeholder*="name" i]'
+    );
+    if (!nameInput) return;
 
+    await nameInput.type(botName, { delay: 50 });
+    logger.info(`Entered bot name "${botName}" into the Meet join prompt`, 'browser');
+  }
+
+  private async setPreJoinMedia(autoMuteMic: boolean, autoMuteCam: boolean) {
+    if (!this.page) return;
+
+    if (autoMuteMic) {
+      logger.info('Turning OFF microphone before joining meeting...', 'join');
+      await this.page.keyboard.down('Control');
+      await this.page.keyboard.press('d');
+      await this.page.keyboard.up('Control');
+    }
+
+    if (autoMuteCam) {
+      logger.info('Turning OFF camera before joining meeting...', 'join');
+      await this.page.keyboard.down('Control');
+      await this.page.keyboard.press('e');
+      await this.page.keyboard.up('Control');
+    }
+  }
+
+  private async clickJoinButton() {
+    if (!this.page) return;
+
+    logger.info('Looking for the "Join now" / "Ask to join" button...', 'join');
+    const clickedLabel = await this.page.evaluate(() => {
+      const labels = ['Join now', 'Ask to join', 'Join anyway'];
+      const buttons = Array.from(document.querySelectorAll('button'));
+      for (const button of buttons) {
+        const text = button.textContent?.trim() || '';
+        if (labels.some((label) => text.includes(label))) {
+          (button as HTMLButtonElement).click();
+          return text;
+        }
+      }
+      return null;
+    });
+
+    if (!clickedLabel) {
+      throw new Error(
+        'Could not find the Google Meet join button. The bot may be blocked by a sign-in wall — configure MEET_BOT_USER_DATA_DIR with a signed-in Chrome profile.'
+      );
+    }
+
+    logger.success(`Clicked Google Meet join button: "${clickedLabel}"`, 'join');
+  }
+
+  /**
+   * Confirms the bot is inside the call (the in-call leave button exists) before
+   * any recording is started, so a rejected/waiting bot never produces output.
+   */
+  private async waitUntilAdmitted(botName: string) {
+    if (!this.page) return;
+
+    logger.info('Waiting for the host to admit the bot into the meeting...', 'join');
+    try {
+      await this.page.waitForSelector(
+        'button[aria-label*="Leave call" i], button[jsname="CQylAd"], [data-call-ended]',
+        { timeout: JOIN_CONFIRMATION_TIMEOUT_MS }
+      );
+    } catch {
+      throw new Error(
+        `The bot was not admitted into the meeting within ${JOIN_CONFIRMATION_TIMEOUT_MS / 1000}s. Ask the host to admit "${botName}" and try again.`
+      );
+    }
+  }
+
+  private startTimer() {
+    this.stopTimer();
     this.timerInterval = setInterval(() => {
       this.elapsedSeconds += 1;
       if (this.activeMeetingId) {
         db.updateMeeting(this.activeMeetingId, { durationSeconds: this.elapsedSeconds });
       }
     }, 1000);
-
-    this.audioLevelInterval = setInterval(() => {
-      if (this.currentState === 'in_meeting') {
-        // Generate dynamic realistic audio level fluctuation between 25% and 85%
-        this.currentAudioLevel = Math.floor(25 + Math.random() * 60);
-      } else {
-        this.currentAudioLevel = 0;
-      }
-    }, 300);
   }
 
-  private stopTimers() {
+  private stopTimer() {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
       this.timerInterval = null;
     }
-    if (this.audioLevelInterval) {
-      clearInterval(this.audioLevelInterval);
-      this.audioLevelInterval = null;
+  }
+
+  private async closeBrowser() {
+    try {
+      await this.browser?.close();
+      logger.info('Closed Puppeteer browser instance.', 'browser');
+    } catch {
+      // Browser already gone.
     }
-    this.currentAudioLevel = 0;
+    this.browser = null;
+    this.page = null;
+  }
+
+  /** Marks the meeting as failed, discards partial output and releases the browser. */
+  private async failMeeting(meetingId: string, message: string) {
+    logger.error(message, 'system');
+
+    this.stopTimer();
+    await recordingService.abortRecording(meetingId);
+    this.activeRecording = null;
+    await this.closeBrowser();
+
+    this.currentState = 'error';
+    db.updateMeeting(meetingId, {
+      status: 'error',
+      errorMessage: message,
+      endTime: new Date().toISOString(),
+      durationSeconds: this.elapsedSeconds,
+      logs: logger.getLogs(),
+    });
+    this.activeMeetingId = null;
   }
 
   public async stopRecording(): Promise<Meeting> {
@@ -317,125 +300,61 @@ export class BotAutomationService {
     }
 
     const meetingId = this.activeMeetingId;
+    const recording = this.activeRecording;
     logger.info(`Stopping meeting recording for meeting ID: ${meetingId}`, 'recording');
 
-    this.stopTimers();
-    this.currentState = 'transcribing';
+    this.stopTimer();
 
-    db.updateMeeting(meetingId, {
-      status: 'transcribing',
-      endTime: new Date().toISOString(),
-      durationSeconds: this.elapsedSeconds,
-    });
-
-    let liveCapturedTranscript: TranscriptSegment[] = [];
-
-    // Extract captured transcript from browser before closing
-    if (this.page) {
-      try {
-        const segments = await this.page.evaluate(() => {
-          return (window as any).__meetCapturedTranscript || [];
-        });
-        if (segments && segments.length > 0) {
-          liveCapturedTranscript = segments;
-          logger.success(`Extracted ${liveCapturedTranscript.length} real speech segments from Google Meet call`, 'browser');
-        }
-      } catch (err) {
-        logger.warn('Could not read live transcript from Puppeteer page before closing.', 'browser');
-      }
-
-      try {
-        await this.browser?.close();
-        logger.info('Closed Puppeteer browser instance.', 'browser');
-      } catch (err) {
-        // ignore
-      }
-      this.browser = null;
-      this.page = null;
+    if (!recording) {
+      const message = 'The bot never started recording, so there is no meeting audio to transcribe.';
+      await this.failMeeting(meetingId, message);
+      throw new Error(message);
     }
 
-    const recResult = recordingService.finalizeRecording(meetingId, this.elapsedSeconds);
+    try {
+      this.currentState = 'transcribing';
+      db.updateMeeting(meetingId, {
+        status: 'transcribing',
+        endTime: new Date().toISOString(),
+        durationSeconds: this.elapsedSeconds,
+      });
 
-    // Step 1: Speech to text transcription
-    logger.info('Processing recorded audio & captured speech using Gemini AI...', 'transcription');
-    const transcript = await transcriptionService.transcribeAudio(null, liveCapturedTranscript);
+      const recordingResult = await recording.stop();
+      this.activeRecording = null;
+      await this.closeBrowser();
 
-    db.updateMeeting(meetingId, {
-      status: 'analyzing',
-      transcript,
-      audioSizeMb: recResult.sizeMb,
-    });
-    this.currentState = 'analyzing';
+      db.updateMeeting(meetingId, {
+        recordingPath: recordingResult.filePath,
+        audioSizeMb: recordingResult.sizeMb,
+      });
 
-    // Step 2: Gemini AI Analysis
-    logger.info('Sending real transcript to Google Gemini AI for structured extraction...', 'ai');
-    const currentMeeting = db.getMeetingById(meetingId);
-    const meetingTitle = currentMeeting?.title || 'Google Meet';
+      const meetingTitle = db.getMeetingById(meetingId)?.title || 'Google Meet';
 
-    const aiSummary = await aiAnalysisService.analyzeTranscript(transcript, meetingTitle);
+      // Transcript and insights are produced by Gemini from the saved recording only.
+      const { transcript, summary } = await transcriptionService.transcribeRecording(
+        recordingResult.filePath,
+        recordingResult.mimeType,
+        meetingTitle
+      );
 
-    this.currentState = 'completed';
-    const finalMeeting = db.updateMeeting(meetingId, {
-      status: 'completed',
-      summary: aiSummary,
-      logs: logger.getLogs(),
-    });
+      this.currentState = 'analyzing';
+      db.updateMeeting(meetingId, { status: 'analyzing', transcript });
 
-    logger.success(`Meeting workflow finished! All notes, tasks & summary stored in DB.`, 'system');
-    this.activeMeetingId = null;
+      this.currentState = 'completed';
+      const finalMeeting = db.updateMeeting(meetingId, {
+        status: 'completed',
+        summary,
+        logs: logger.getLogs(),
+      });
 
-    return finalMeeting || (db.getMeetingById(meetingId) as Meeting);
-  }
+      logger.success('Meeting workflow finished: recording, transcript and summary stored.', 'system');
+      this.activeMeetingId = null;
 
-  /**
-   * Instantly simulates a complete meeting lifecycle for testing or demonstration
-   */
-  public async simulateMeeting(
-    customTitle?: string,
-    providedTranscript?: TranscriptSegment[]
-  ): Promise<Meeting> {
-    if (this.currentState !== 'idle' && this.currentState !== 'completed' && this.currentState !== 'error') {
-      throw new Error(`Bot is currently busy in state: ${this.currentState}`);
+      return finalMeeting as Meeting;
+    } catch (err: any) {
+      await this.failMeeting(meetingId, err?.message || String(err));
+      throw err;
     }
-
-    const meetingId = `meet_sim_${Date.now()}`;
-    const title = customTitle || `Sprint Review & Architecture Sync (${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})`;
-
-    const newMeeting: Meeting = {
-      id: meetingId,
-      title,
-      meetUrl: 'https://meet.google.com/sim-test-bot',
-      status: 'completed',
-      startTime: new Date(Date.now() - 15 * 60 * 1000).toISOString(),
-      endTime: new Date().toISOString(),
-      durationSeconds: 900,
-      recordingPath: recordingService.getRecordingPath(meetingId),
-      audioSizeMb: 4.8,
-      transcript: [],
-      botConfig: {
-        botName: 'AI Meeting Bot',
-        autoMuteMic: true,
-        autoMuteCam: true,
-      },
-      logs: logger.getLogs(),
-      createdAt: new Date().toISOString(),
-    };
-
-    db.saveMeeting(newMeeting);
-
-    // Transcribe
-    const transcript = await transcriptionService.transcribeAudio(null, providedTranscript);
-    
-    // Analyze
-    const summary = await aiAnalysisService.analyzeTranscript(transcript, title);
-
-    const updated = db.updateMeeting(meetingId, {
-      transcript,
-      summary,
-    });
-
-    logger.success(`Simulated meeting "${title}" created successfully.`, 'system');
-    return updated as Meeting;
   }
 }
 

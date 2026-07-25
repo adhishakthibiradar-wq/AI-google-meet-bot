@@ -1,24 +1,17 @@
 import React, { useState } from 'react';
-import { Video, MicOff, CameraOff, Play, Shield, Sparkles, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Video, MicOff, CameraOff, Play, Shield, AlertCircle } from 'lucide-react';
 
 interface MeetJoinCardProps {
   onJoin: (meetUrl: string, botName: string, autoMuteMic: boolean, autoMuteCam: boolean) => Promise<void>;
   isLoading: boolean;
-  onSelectPreset: (url: string, title: string) => void;
 }
 
-export const MeetJoinCard: React.FC<MeetJoinCardProps> = ({ onJoin, isLoading, onSelectPreset }) => {
+export const MeetJoinCard: React.FC<MeetJoinCardProps> = ({ onJoin, isLoading }) => {
   const [meetUrl, setMeetUrl] = useState('');
   const [botName, setBotName] = useState('AI Meeting Assistant');
   const [autoMuteMic, setAutoMuteMic] = useState(true);
   const [autoMuteCam, setAutoMuteCam] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
-  const presets = [
-    { title: 'Sprint Review', url: 'https://meet.google.com/sprint-review-2026' },
-    { title: 'Product Roadmap', url: 'https://meet.google.com/product-roadmap-q3' },
-    { title: 'Architecture Sync', url: 'https://meet.google.com/arch-sync-meet' },
-  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,26 +80,10 @@ export const MeetJoinCard: React.FC<MeetJoinCardProps> = ({ onJoin, isLoading, o
             />
           </div>
 
-          {/* Quick Preset Buttons */}
-          <div className="flex flex-wrap items-center gap-2 mt-2">
-            <span className="text-[11px] text-slate-500 font-medium flex items-center gap-1">
-              <Sparkles className="w-3 h-3 text-indigo-600" /> Presets:
-            </span>
-            {presets.map((preset, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => {
-                  setMeetUrl(preset.url);
-                  setErrorMessage(null);
-                  onSelectPreset(preset.url, preset.title);
-                }}
-                className="text-[11px] font-medium px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors"
-              >
-                {preset.title}
-              </button>
-            ))}
-          </div>
+          <p className="text-[11px] text-slate-500 mt-2">
+            The bot joins the call, records the live meeting audio, and only then generates the
+            transcript and AI summary.
+          </p>
         </div>
 
         {/* Error Alert */}
