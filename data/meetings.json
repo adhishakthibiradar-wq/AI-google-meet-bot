@@ -110,494 +110,6 @@
     }
   },
   {
-    "id": "meet_1784991154025",
-    "title": "Google Meet Session (Jul 25, 08:22 PM)",
-    "meetUrl": "https://meet.google.com/pzj-iujm-nwh",
-    "status": "error",
-    "startTime": "2026-07-25T14:52:34.034Z",
-    "durationSeconds": 0,
-    "transcript": [],
-    "botConfig": {
-      "botName": "AI Meeting Assistant",
-      "autoMuteMic": true,
-      "autoMuteCam": true
-    },
-    "logs": [
-      {
-        "id": "wg25270",
-        "timestamp": "20:22:36",
-        "level": "info",
-        "message": "Closed Puppeteer browser instance.",
-        "source": "browser"
-      },
-      {
-        "id": "415rcaj",
-        "timestamp": "20:22:36",
-        "level": "error",
-        "message": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
-        "source": "system"
-      },
-      {
-        "id": "lp46304",
-        "timestamp": "20:22:36",
-        "level": "error",
-        "message": "Error: Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.\n    at BotAutomationService.launchBrowser (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:258:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async BotAutomationService.runBrowserJoinProcess (C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\server\\services\\botAutomationService.ts:165:7)",
-        "source": "browser"
-      },
-      {
-        "id": "az74960",
-        "timestamp": "20:22:36",
-        "level": "warn",
-        "message": "Cannot capture \"error\" screenshot: no open page",
-        "source": "browser"
-      },
-      {
-        "id": "beqqb5y",
-        "timestamp": "20:22:36",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "yh69jdo",
-        "timestamp": "20:22:36",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "6u6dhut",
-        "timestamp": "20:22:36",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "mlcin20",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "tlyoi9g",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "syzgeys",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "u4u7f0f",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "Browser launch options: {\"headless\":false,\"userDataDir\":\"C:\\\\Users\\\\adhis\\\\AppData\\\\Local\\\\Google\\\\Chrome\\\\User Data\",\"executablePath\":\"C:\\\\Users\\\\adhis\\\\.cache\\\\puppeteer\\\\chrome\\\\win64-150.0.7871.24\\\\chrome-win64\\\\chrome.exe\",\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\",\"--use-fake-ui-for-media-stream\",\"--autoplay-policy=no-user-gesture-required\",\"--disable-blink-features=AutomationControlled\",\"--disable-notifications\",\"--disable-geolocation\",\"--window-size=1280,800\"]}",
-        "source": "browser"
-      },
-      {
-        "id": "dbsxog9",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "User data directory: C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data",
-        "source": "browser"
-      },
-      {
-        "id": "wopn0ht",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "Chrome executable path: C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe",
-        "source": "browser"
-      },
-      {
-        "id": "1til7eq",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "Env: MEET_BOT_HEADLESS=false MEET_BOT_USER_DATA_DIR=C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data MEET_BOT_CHROME_PATH=(unset)",
-        "source": "browser"
-      },
-      {
-        "id": "0aj8htf",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "8wzfp5m",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "9yl6wrz",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "Initiating bot join sequence for URL: https://meet.google.com/pzj-iujm-nwh",
-        "source": "join"
-      },
-      {
-        "id": "xyg7mx3",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "Meet URL validated: https://meet.google.com/pzj-iujm-nwh",
-        "source": "join"
-      },
-      {
-        "id": "gmg1ndm",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "API request received: POST /api/meetings/join meetUrl=https://meet.google.com/pzj-iujm-nwh botName=AI Meeting Assistant autoMuteMic=true autoMuteCam=true",
-        "source": "join"
-      },
-      {
-        "id": "8hzko0j",
-        "timestamp": "20:22:34",
-        "level": "info",
-        "message": "POST /api/meetings/join",
-        "source": "system"
-      },
-      {
-        "id": "4qhs90k",
-        "timestamp": "20:22:32",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "wlybcp2",
-        "timestamp": "20:22:32",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "wyszitl",
-        "timestamp": "20:22:30",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "t8s18kt",
-        "timestamp": "20:22:30",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "jmeoap8",
-        "timestamp": "20:22:28",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "jh63qeg",
-        "timestamp": "20:22:28",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "lo6wixg",
-        "timestamp": "20:22:27",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "06idvp7",
-        "timestamp": "20:22:26",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "wmc2hz8",
-        "timestamp": "20:22:24",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "7u98qrg",
-        "timestamp": "20:22:24",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "dypvy4i",
-        "timestamp": "20:22:22",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "ljsbkoz",
-        "timestamp": "20:22:22",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "fzz5rt3",
-        "timestamp": "20:22:20",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "0t1j9nk",
-        "timestamp": "20:22:20",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "7hfg7li",
-        "timestamp": "20:22:18",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "55buatq",
-        "timestamp": "20:22:18",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "yimzcpz",
-        "timestamp": "20:22:16",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "tifcjyx",
-        "timestamp": "20:22:16",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "virv2yc",
-        "timestamp": "20:22:14",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "tcxg5uy",
-        "timestamp": "20:22:14",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "xr6nl2s",
-        "timestamp": "20:22:12",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "7wc7dk7",
-        "timestamp": "20:22:12",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "cw4s2i0",
-        "timestamp": "20:22:10",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "n1jpyjf",
-        "timestamp": "20:22:10",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "tmnhjz2",
-        "timestamp": "20:22:08",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "m0gfmd4",
-        "timestamp": "20:22:08",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "ot2smd2",
-        "timestamp": "20:22:06",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "hyc41lm",
-        "timestamp": "20:22:06",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "52pgi51",
-        "timestamp": "20:22:04",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "89o1eke",
-        "timestamp": "20:22:04",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "77oxsj5",
-        "timestamp": "20:22:02",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "ft14982",
-        "timestamp": "20:22:02",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "pgi6nxq",
-        "timestamp": "20:22:00",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "o0eaoxm",
-        "timestamp": "20:22:00",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "ygvfuo3",
-        "timestamp": "20:21:58",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "qd1trpk",
-        "timestamp": "20:21:58",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "ejqpn0j",
-        "timestamp": "20:21:56",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "b6xkwiq",
-        "timestamp": "20:21:56",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "g3c0co9",
-        "timestamp": "20:21:54",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "m7o0mzu",
-        "timestamp": "20:21:54",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "g0aduce",
-        "timestamp": "20:21:52",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "cqton0c",
-        "timestamp": "20:21:52",
-        "level": "info",
-        "message": "GET /api/meetings",
-        "source": "system"
-      },
-      {
-        "id": "hwvp0y3",
-        "timestamp": "20:21:52",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "wyzv6gw",
-        "timestamp": "20:21:52",
-        "level": "info",
-        "message": "GET /api/meetings/status",
-        "source": "system"
-      },
-      {
-        "id": "jfcrupi",
-        "timestamp": "20:21:38",
-        "level": "success",
-        "message": "🚀 AI Google Meet Bot Server running at http://0.0.0.0:3000",
-        "source": "system"
-      },
-      {
-        "id": "y2cz931",
-        "timestamp": "20:21:37",
-        "level": "info",
-        "message": "Starting Vite development middleware on port 3000...",
-        "source": "system"
-      },
-      {
-        "id": "7x9blwr",
-        "timestamp": "20:21:36",
-        "level": "info",
-        "message": "Loaded 1 meetings from database file",
-        "source": "system"
-      }
-    ],
-    "createdAt": "2026-07-25T14:52:34.034Z",
-    "errorMessage": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
-    "endTime": "2026-07-25T14:52:36.816Z"
-  },
-  {
     "id": "meet_1784991182001",
     "title": "Google Meet Session (Jul 25, 08:23 PM)",
     "meetUrl": "https://meet.google.com/bun-zazq-ccb",
@@ -2398,5 +1910,1473 @@
     "createdAt": "2026-07-25T14:53:08.210Z",
     "errorMessage": "Puppeteer failed to launch Chrome at \"C:\\Users\\adhis\\.cache\\puppeteer\\chrome\\win64-150.0.7871.24\\chrome-win64\\chrome.exe\": The browser is already running for C:\\Users\\adhis\\AppData\\Local\\Google\\Chrome\\User Data. Use a different `userDataDir` or stop the running browser first.",
     "endTime": "2026-07-25T14:53:08.745Z"
+  },
+  {
+    "id": "meet_1784993265820",
+    "title": "Google Meet Session (Jul 25, 08:57 PM)",
+    "meetUrl": "https://meet.google.com/zeq-gjjy-fxq",
+    "status": "connecting",
+    "startTime": "2026-07-25T15:27:45.820Z",
+    "durationSeconds": 0,
+    "transcript": [],
+    "botConfig": {
+      "botName": "AI Meeting Assistant",
+      "autoMuteMic": true,
+      "autoMuteCam": true
+    },
+    "logs": [],
+    "createdAt": "2026-07-25T15:27:45.820Z"
+  },
+  {
+    "id": "meet_1784998338124",
+    "title": "Google Meet Session (Jul 25, 10:22 PM)",
+    "meetUrl": "https://meet.google.com/gpk-ydhc-bwj",
+    "status": "completed",
+    "startTime": "2026-07-25T16:52:18.125Z",
+    "durationSeconds": 98,
+    "transcript": [
+      {
+        "id": "stt-seg-0-1784998569750",
+        "speaker": "Adishakti Biradar",
+        "timestamp": "00:26",
+        "startTimeSeconds": 26,
+        "text": "Hi, hello everyone. My name is Adishakti Biradar. Today I will present the project which I have built. The project name is Google AI Meet, where I have built this project by using the Node.js, Express, and database. I have used Puppeteer for the, to record the Google Meet, which is very useful when I record the Google Meet. And after that, I have used many AI tools to build this project. Thank you."
+      }
+    ],
+    "botConfig": {
+      "botName": "AI Meeting Assistant",
+      "autoMuteMic": true,
+      "autoMuteCam": true
+    },
+    "logs": [
+      {
+        "id": "nwkwa92",
+        "timestamp": "22:26:09",
+        "level": "success",
+        "message": "Transcribed 1 speech segments from the meeting recording",
+        "source": "transcription"
+      },
+      {
+        "id": "2ewe85s",
+        "timestamp": "22:26:09",
+        "level": "success",
+        "message": "Gemini AI Audio Transcription complete: 1 segments, 4 points",
+        "source": "ai"
+      },
+      {
+        "id": "0zqayj7",
+        "timestamp": "22:26:08",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "2zs7w2e",
+        "timestamp": "22:26:08",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "pgin64q",
+        "timestamp": "22:26:06",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "2qivslb",
+        "timestamp": "22:26:06",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "zypc56p",
+        "timestamp": "22:26:04",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "24zb57o",
+        "timestamp": "22:26:04",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "r5nn08r",
+        "timestamp": "22:26:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "uadim7k",
+        "timestamp": "22:26:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "njuital",
+        "timestamp": "22:26:00",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "lvvd6lt",
+        "timestamp": "22:26:00",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "b497hiw",
+        "timestamp": "22:25:58",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "fxj23jv",
+        "timestamp": "22:25:58",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "5b6y58f",
+        "timestamp": "22:25:56",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "kf7sxky",
+        "timestamp": "22:25:56",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wtjragn",
+        "timestamp": "22:25:54",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "9bdtjyc",
+        "timestamp": "22:25:54",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "9oev4pw",
+        "timestamp": "22:25:52",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "kxrko7p",
+        "timestamp": "22:25:52",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "x0gvjac",
+        "timestamp": "22:25:50",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "5arl6de",
+        "timestamp": "22:25:50",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ckrvriz",
+        "timestamp": "22:25:48",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ugpk6x6",
+        "timestamp": "22:25:48",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "5vxyvui",
+        "timestamp": "22:25:46",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "fxzzcha",
+        "timestamp": "22:25:46",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "8zqjs1k",
+        "timestamp": "22:25:44",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "v30qjq5",
+        "timestamp": "22:25:44",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "74vtxf7",
+        "timestamp": "22:25:42",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "uba983z",
+        "timestamp": "22:25:42",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "t8eo5mc",
+        "timestamp": "22:25:40",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "a7a3xyc",
+        "timestamp": "22:25:40",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "lsyubr5",
+        "timestamp": "22:25:38",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "pulshws",
+        "timestamp": "22:25:38",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "q490si0",
+        "timestamp": "22:25:36",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "17y9dxs",
+        "timestamp": "22:25:36",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "p05xpig",
+        "timestamp": "22:25:34",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "1p69gs0",
+        "timestamp": "22:25:34",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "74boyqw",
+        "timestamp": "22:25:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "0u7wodq",
+        "timestamp": "22:25:34",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "a3o45ij",
+        "timestamp": "22:25:34",
+        "level": "info",
+        "message": "Starting Gemini AI Speech-To-Text & Analysis for recording: \"Google Meet Session (Jul 25, 10:22 PM)\"",
+        "source": "ai"
+      },
+      {
+        "id": "s2m0wmh",
+        "timestamp": "22:25:34",
+        "level": "info",
+        "message": "Transcribing recorded meeting audio (0.79 MB) with Gemini speech-to-text...",
+        "source": "transcription"
+      },
+      {
+        "id": "bzb1vx0",
+        "timestamp": "22:25:34",
+        "level": "info",
+        "message": "Closed Puppeteer browser instance.",
+        "source": "browser"
+      },
+      {
+        "id": "rw7nft0",
+        "timestamp": "22:25:34",
+        "level": "success",
+        "message": "Recording saved: C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\recordings\\meet_rec_meet_1784998338124.webm (0.79 MB from 0 participant stream(s))",
+        "source": "recording"
+      },
+      {
+        "id": "q2xi709",
+        "timestamp": "22:25:34",
+        "level": "error",
+        "message": "Failed to flush in-page recorder: Attempted to use detached Frame 'DFE94F3EA4C1F0B71AED53FDD424417E'.",
+        "source": "recording"
+      },
+      {
+        "id": "qk1iymr",
+        "timestamp": "22:25:34",
+        "level": "info",
+        "message": "Stopping meeting recording for meeting ID: meet_1784998338124",
+        "source": "recording"
+      },
+      {
+        "id": "op1p2mw",
+        "timestamp": "22:25:34",
+        "level": "info",
+        "message": "POST /api/meetings/stop",
+        "source": "system"
+      },
+      {
+        "id": "dzp9e2z",
+        "timestamp": "22:25:33",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "foatbay",
+        "timestamp": "22:25:33",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "lgvtf5o",
+        "timestamp": "22:25:33",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "qbom4az",
+        "timestamp": "22:25:33",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "hhdoirl",
+        "timestamp": "22:25:32",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "l5ru0lp",
+        "timestamp": "22:25:32",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "cuhlvel",
+        "timestamp": "22:25:32",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "i6zsbg1",
+        "timestamp": "22:25:32",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "kvhfogq",
+        "timestamp": "22:25:31",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "fge01cq",
+        "timestamp": "22:25:31",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "wrfsntv",
+        "timestamp": "22:25:31",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "7y7mqe5",
+        "timestamp": "22:25:31",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "wfws63w",
+        "timestamp": "22:25:30",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "0wscoqb",
+        "timestamp": "22:25:30",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "vo3v0dy",
+        "timestamp": "22:25:30",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "5wzpz7l",
+        "timestamp": "22:25:30",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "mip4az2",
+        "timestamp": "22:25:29",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "qutqln9",
+        "timestamp": "22:25:29",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "g3m8bvp",
+        "timestamp": "22:25:29",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "4b0hs3h",
+        "timestamp": "22:25:29",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "0bc5ny9",
+        "timestamp": "22:25:28",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "x0ljtz9",
+        "timestamp": "22:25:28",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "m9k376e",
+        "timestamp": "22:25:28",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "f4xn917",
+        "timestamp": "22:25:28",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "a3j58w9",
+        "timestamp": "22:25:27",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "nutfbwn",
+        "timestamp": "22:25:27",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "mqiqhrw",
+        "timestamp": "22:25:27",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "u08ipft",
+        "timestamp": "22:25:27",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "9z0udvp",
+        "timestamp": "22:25:26",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "x6ca47r",
+        "timestamp": "22:25:26",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "cjq9pt0",
+        "timestamp": "22:25:26",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "4ibab0t",
+        "timestamp": "22:25:26",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "geda2ak",
+        "timestamp": "22:25:25",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "evg64yj",
+        "timestamp": "22:25:25",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ltz3hse",
+        "timestamp": "22:25:25",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "q9u5zh3",
+        "timestamp": "22:25:25",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "6hk01f1",
+        "timestamp": "22:25:24",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "pm9ykww",
+        "timestamp": "22:25:24",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "mn72fnz",
+        "timestamp": "22:25:24",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "a2qd32q",
+        "timestamp": "22:25:24",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ttbt85g",
+        "timestamp": "22:25:23",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "skbcyxa",
+        "timestamp": "22:25:23",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "kcgn2pf",
+        "timestamp": "22:25:23",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "3j10r1j",
+        "timestamp": "22:25:23",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "lxa73my",
+        "timestamp": "22:25:22",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ut8q9ym",
+        "timestamp": "22:25:22",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "nybt4fc",
+        "timestamp": "22:25:22",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "4uovwwd",
+        "timestamp": "22:25:22",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "msxex5b",
+        "timestamp": "22:25:21",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "bc0l2d4",
+        "timestamp": "22:25:21",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "abkt7nc",
+        "timestamp": "22:25:21",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "bfx0z21",
+        "timestamp": "22:25:21",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ard8767",
+        "timestamp": "22:25:20",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "bkatqa5",
+        "timestamp": "22:25:20",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "rhnp2y5",
+        "timestamp": "22:25:20",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "mhkfgli",
+        "timestamp": "22:25:20",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "0xepo1j",
+        "timestamp": "22:25:19",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "xh9m6md",
+        "timestamp": "22:25:19",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "rbojtq3",
+        "timestamp": "22:25:19",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "4q6xnhx",
+        "timestamp": "22:25:19",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "cyaivqv",
+        "timestamp": "22:25:18",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "4f5u0nx",
+        "timestamp": "22:25:18",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "6y4rmzp",
+        "timestamp": "22:25:18",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "zclxu5p",
+        "timestamp": "22:25:18",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "uqj0err",
+        "timestamp": "22:25:17",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "0sj0bvg",
+        "timestamp": "22:25:17",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "1g0u9ou",
+        "timestamp": "22:25:17",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "5wr70au",
+        "timestamp": "22:25:17",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "029e5fj",
+        "timestamp": "22:25:16",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "8jtqcyc",
+        "timestamp": "22:25:16",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "0w08390",
+        "timestamp": "22:25:16",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "kgksauh",
+        "timestamp": "22:25:16",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "6y9xnj3",
+        "timestamp": "22:25:15",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "i1pobvl",
+        "timestamp": "22:25:15",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ncou3z1",
+        "timestamp": "22:25:15",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "0x091jw",
+        "timestamp": "22:25:15",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "vl4d4ye",
+        "timestamp": "22:25:14",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "40zt1k6",
+        "timestamp": "22:25:14",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "402d31g",
+        "timestamp": "22:25:14",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "i24bttq",
+        "timestamp": "22:25:14",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "vz4r3mh",
+        "timestamp": "22:25:13",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "rwls6nu",
+        "timestamp": "22:25:13",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "fpnf6hs",
+        "timestamp": "22:25:13",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "1cw35p1",
+        "timestamp": "22:25:13",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "naw3akn",
+        "timestamp": "22:25:12",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "uodofxf",
+        "timestamp": "22:25:12",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "6rx8m03",
+        "timestamp": "22:25:12",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "cwkdciw",
+        "timestamp": "22:25:12",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "57yxhhb",
+        "timestamp": "22:25:11",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "3os83bu",
+        "timestamp": "22:25:11",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "mr3y9cr",
+        "timestamp": "22:25:11",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "9v5arhg",
+        "timestamp": "22:25:11",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "dhpim2y",
+        "timestamp": "22:25:10",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "7ji0mxn",
+        "timestamp": "22:25:10",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "cw1diq8",
+        "timestamp": "22:25:10",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "jsem0di",
+        "timestamp": "22:25:10",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "smy9ml4",
+        "timestamp": "22:25:09",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "2k65f64",
+        "timestamp": "22:25:09",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "mcre54r",
+        "timestamp": "22:25:09",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "z7fwpm4",
+        "timestamp": "22:25:09",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "e3o9ubn",
+        "timestamp": "22:25:08",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ukbllsk",
+        "timestamp": "22:25:08",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "fsikg0z",
+        "timestamp": "22:25:08",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ihnjeq5",
+        "timestamp": "22:25:08",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "u7xgzgh",
+        "timestamp": "22:25:07",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "bc2hg0p",
+        "timestamp": "22:25:07",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "56cyy24",
+        "timestamp": "22:25:07",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "qw3eeed",
+        "timestamp": "22:25:07",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "63oea40",
+        "timestamp": "22:25:06",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "4d81reh",
+        "timestamp": "22:25:06",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "xpgl8o2",
+        "timestamp": "22:25:06",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "a32ihrl",
+        "timestamp": "22:25:06",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "uxr878z",
+        "timestamp": "22:25:05",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "frnwcbp",
+        "timestamp": "22:25:05",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "cmm04gi",
+        "timestamp": "22:25:05",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "yk7hutg",
+        "timestamp": "22:25:05",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "o3b1w4k",
+        "timestamp": "22:25:04",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "kasrybn",
+        "timestamp": "22:25:04",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "lte3koo",
+        "timestamp": "22:25:04",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "l700p0d",
+        "timestamp": "22:25:04",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ptclma0",
+        "timestamp": "22:25:03",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "ui9hfcs",
+        "timestamp": "22:25:03",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "mqde6sk",
+        "timestamp": "22:25:03",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "5qr1oas",
+        "timestamp": "22:25:03",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "a564x1j",
+        "timestamp": "22:25:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "6d25rdh",
+        "timestamp": "22:25:02",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "u0q3pel",
+        "timestamp": "22:25:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "cawpg6h",
+        "timestamp": "22:25:02",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "ej1q65p",
+        "timestamp": "22:25:01",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "4h6bx4g",
+        "timestamp": "22:25:01",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "fcxce4v",
+        "timestamp": "22:25:01",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "xdll7ig",
+        "timestamp": "22:25:01",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "bmllh3m",
+        "timestamp": "22:25:00",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "9o90ohn",
+        "timestamp": "22:25:00",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "x767m1d",
+        "timestamp": "22:25:00",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "4wp67w3",
+        "timestamp": "22:25:00",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "7zwdg83",
+        "timestamp": "22:24:59",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "orjw8eq",
+        "timestamp": "22:24:59",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "kecugws",
+        "timestamp": "22:24:59",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "09rsrsh",
+        "timestamp": "22:24:59",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "mucf7ss",
+        "timestamp": "22:24:58",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "trg3cos",
+        "timestamp": "22:24:58",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "nygezbc",
+        "timestamp": "22:24:58",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "jbt29y7",
+        "timestamp": "22:24:58",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "nhb439g",
+        "timestamp": "22:24:57",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "u4maswr",
+        "timestamp": "22:24:57",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "2u79lel",
+        "timestamp": "22:24:57",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "5u7cdvv",
+        "timestamp": "22:24:57",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "83g8f2t",
+        "timestamp": "22:24:56",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "k6cn2cl",
+        "timestamp": "22:24:56",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      },
+      {
+        "id": "auyg981",
+        "timestamp": "22:24:56",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "fg6rikl",
+        "timestamp": "22:24:56",
+        "level": "info",
+        "message": "GET /api/meetings/status",
+        "source": "system"
+      },
+      {
+        "id": "sgutdhx",
+        "timestamp": "22:24:55",
+        "level": "info",
+        "message": "GET /api/meetings",
+        "source": "system"
+      }
+    ],
+    "createdAt": "2026-07-25T16:52:18.125Z",
+    "recordingPath": "C:\\Users\\adhis\\OneDrive\\Documents\\GitHub\\AI-google-meet-bot\\recordings\\meet_rec_meet_1784998338124.webm",
+    "endTime": "2026-07-25T16:55:34.021Z",
+    "audioSizeMb": 0.79,
+    "summary": {
+      "executiveSummary": "Adishakti Biradar introduced and presented the 'Google AI Meet' project. The application was built using Node.js, Express, a database, Puppeteer for automated Google Meet recording, and various AI tools.",
+      "discussionPoints": [
+        "Introduction to the 'Google AI Meet' project.",
+        "Technology stack overview including Node.js, Express, and database integration.",
+        "Use of Puppeteer for automated recording of Google Meet sessions.",
+        "Integration of various AI tools in the development process."
+      ],
+      "actionItems": [
+        "Review project code and demonstration of Google AI Meet."
+      ],
+      "assignedTasks": [
+        {
+          "id": "task-1784998569750-0",
+          "task": "Present Google AI Meet project architecture and features",
+          "owner": "Adishakti Biradar",
+          "priority": "Medium",
+          "dueDate": "Completed",
+          "status": "Pending"
+        }
+      ],
+      "meetingConclusion": "The presentation concluded with an overview of the core technologies and features used to construct the Google AI Meet application.",
+      "analyzedAt": "2026-07-25T16:56:09.750Z"
+    }
   }
 ]
