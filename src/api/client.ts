@@ -59,13 +59,6 @@ class ApiClient {
     });
   }
 
-  public async simulateMeeting(title?: string, transcript?: any[]): Promise<{ message: string; meeting: Meeting }> {
-    return this.request<{ message: string; meeting: Meeting }>('/api/meetings/simulate', {
-      method: 'POST',
-      body: JSON.stringify({ title, transcript }),
-    });
-  }
-
   public async uploadAudioOrTranscript(params: {
     title: string;
     audioBase64?: string;

@@ -140,7 +140,7 @@ RULES:
       const assignedTasksFormatted = (parsed.assignedTasks || []).map(
         (t: any, index: number) => ({
           id: `task-${Date.now()}-${index}`,
-          task: t.task || 'Unspecified task',
+          task: t.task,
           owner: t.owner || 'Unknown',
           priority: ['High', 'Medium', 'Low'].includes(t.priority) ? t.priority : 'Medium',
           dueDate: t.dueDate || undefined,
@@ -149,11 +149,11 @@ RULES:
       );
 
       const summary: AiSummary = {
-        executiveSummary: parsed.executiveSummary || 'Audio processed successfully.',
+        executiveSummary: parsed.executiveSummary || '',
         discussionPoints: parsed.discussionPoints || [],
         actionItems: parsed.actionItems || [],
         assignedTasks: assignedTasksFormatted,
-        meetingConclusion: parsed.meetingConclusion || 'Recording analysis complete.',
+        meetingConclusion: parsed.meetingConclusion || '',
         analyzedAt: new Date().toISOString(),
       };
 
@@ -176,15 +176,7 @@ RULES:
     logger.info(`Starting Gemini AI analysis for meeting: "${meetingTitle}"`, 'ai');
 
     if (!transcript || transcript.length === 0) {
-      logger.warn('Transcript is empty. Returning default empty summary.', 'ai');
-      return {
-        executiveSummary: 'No transcript data was available for analysis.',
-        discussionPoints: [],
-        actionItems: [],
-        assignedTasks: [],
-        meetingConclusion: 'Meeting ended without transcript entries.',
-        analyzedAt: new Date().toISOString(),
-      };
+      throw new Error('Cannot analyze a meeting without transcript content.');
     }
 
     const formattedTranscriptText = transcript
@@ -284,7 +276,7 @@ ${formattedTranscriptText}
       const assignedTasksFormatted = (parsed.assignedTasks || []).map(
         (t: any, index: number) => ({
           id: `task-${Date.now()}-${index}`,
-          task: t.task || 'Unspecified task',
+          task: t.task,
           owner: t.owner || 'Unknown',
           priority: ['High', 'Medium', 'Low'].includes(t.priority)
             ? t.priority
@@ -295,11 +287,11 @@ ${formattedTranscriptText}
       );
 
       const summaryResult: AiSummary = {
-        executiveSummary: parsed.executiveSummary || 'No summary generated.',
+        executiveSummary: parsed.executiveSummary || '',
         discussionPoints: parsed.discussionPoints || [],
         actionItems: parsed.actionItems || [],
         assignedTasks: assignedTasksFormatted,
-        meetingConclusion: parsed.meetingConclusion || 'Meeting completed.',
+        meetingConclusion: parsed.meetingConclusion || '',
         analyzedAt: new Date().toISOString(),
       };
 
@@ -311,24 +303,7 @@ ${formattedTranscriptText}
       return summaryResult;
     } catch (err: any) {
       logger.error(`Gemini AI analysis error: ${err?.message || err}`, 'ai');
-      // Graceful fallback if Gemini API is missing key or fails
-      return {
-        executiveSummary:
-          'AI analysis could not complete automatically. Please verify GEMINI_API_KEY environment variable.',
-        discussionPoints: transcript.slice(0, 5).map((t) => `${t.speaker}: ${t.text}`),
-        actionItems: ['Review meeting transcript manually.'],
-        assignedTasks: [
-          {
-            id: 'task-fallback-1',
-            task: 'Review meeting notes and assign tasks manually',
-            owner: 'Unknown',
-            priority: 'Medium',
-            status: 'Pending',
-          },
-        ],
-        meetingConclusion: 'Transcript captured successfully. AI analysis pending API setup.',
-        analyzedAt: new Date().toISOString(),
-      };
+      throw err;
     }
   }
 }

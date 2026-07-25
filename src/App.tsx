@@ -7,9 +7,8 @@ import { LiveBotStatusCard } from './components/LiveBotStatusCard';
 import { AiSummaryView } from './components/AiSummaryView';
 import { TranscriptViewer } from './components/TranscriptViewer';
 import { MeetingHistory } from './components/MeetingHistory';
-import { SampleMeetingsModal } from './components/SampleMeetingsModal';
 import { AudioUploadModal } from './components/AudioUploadModal';
-import { Sparkles, FileText, CheckCircle2, Bot, LayoutDashboard, History } from 'lucide-react';
+import { AlertCircle, Sparkles, Bot } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'history'>('dashboard');
@@ -25,8 +24,8 @@ export default function App() {
   const [isStopping, setIsStopping] = useState(false);
   const [isReanalyzing, setIsReanalyzing] = useState(false);
 
-  const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+  const [botError, setBotError] = useState<string | null>(null);
 
   // Poll bot status and fetch meeting list
   const fetchBotStatusAndMeetings = async () => {
@@ -36,6 +35,10 @@ export default function App() {
       setLogs(status.logs || []);
       setAudioLevel(status.audioLevel || 0);
       setElapsedSeconds(status.elapsedSeconds || 0);
+
+      if (status.state === 'error' && status.activeMeeting?.errorMessage) {
+        setBotError(status.activeMeeting.errorMessage);
+      }
 
       if (status.activeMeeting) {
         setActiveMeeting(status.activeMeeting);
@@ -71,6 +74,7 @@ export default function App() {
     autoMuteCam: boolean
   ) => {
     setIsLoadingJoin(true);
+    setBotError(null);
     try {
       const res = await api.joinMeeting({
         meetUrl,
@@ -89,11 +93,14 @@ export default function App() {
   // Handle Stopping Recording & Triggering Gemini AI
   const handleStopRecording = async () => {
     setIsStopping(true);
+    setBotError(null);
     try {
       const res = await api.stopMeeting();
       setSelectedMeeting(res.meeting);
       setActiveMeeting(null);
       await fetchBotStatusAndMeetings();
+    } catch (err: any) {
+      setBotError(err?.message || 'Failed to finalize the meeting recording.');
     } finally {
       setIsStopping(false);
     }
@@ -120,13 +127,6 @@ export default function App() {
     await fetchBotStatusAndMeetings();
   };
 
-  // Handle Simulating Preset Scenario
-  const handleSimulateScenario = async (title: string, transcript: any[]) => {
-    const res = await api.simulateMeeting(title, transcript);
-    setSelectedMeeting(res.meeting);
-    await fetchBotStatusAndMeetings();
-  };
-
   // Handle Audio Recording Upload & Speech-To-Text
   const handleUploadRecording = async (params: {
     title: string;
@@ -148,7 +148,6 @@ export default function App() {
         botState={botState}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        onOpenSampleModal={() => setIsSampleModalOpen(true)}
         onOpenUploadModal={() => setIsUploadModalOpen(true)}
       />
 
@@ -156,6 +155,17 @@ export default function App() {
       <main className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-1">
         {activeTab === 'dashboard' ? (
           <>
+            {/* Bot Failure Banner */}
+            {botError && (
+              <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-3">
+                <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <p className="font-bold">Meeting recording failed</p>
+                  <p className="leading-relaxed">{botError}</p>
+                </div>
+              </div>
+            )}
+
             {/* Top Section: Join Card OR Active Bot Status Card */}
             {isBotActive ? (
               <LiveBotStatusCard
@@ -168,13 +178,7 @@ export default function App() {
                 isStopping={isStopping}
               />
             ) : (
-              <MeetJoinCard
-                onJoin={handleJoinMeeting}
-                isLoading={isLoadingJoin}
-                onSelectPreset={(url, title) => {
-                  console.log(`Selected preset: ${title} (${url})`);
-                }}
-              />
+              <MeetJoinCard onJoin={handleJoinMeeting} isLoading={isLoadingJoin} />
             )}
 
             {/* Bottom Section: Active or Selected Meeting Details */}
@@ -218,15 +222,15 @@ export default function App() {
                 <Bot className="w-10 h-10 text-indigo-600 mx-auto" />
                 <h3 className="text-base font-bold text-slate-900">No Meeting Selected</h3>
                 <p className="text-xs text-slate-500 max-w-sm mx-auto">
-                  Enter a Google Meet link above, or select a demo scenario to see AI meeting transcription, action items, and task extraction in action.
+                  Enter a Google Meet link above to dispatch the recording bot, or upload an existing meeting recording to transcribe it.
                 </p>
                 <div className="pt-2">
                   <button
-                    onClick={() => setIsSampleModalOpen(true)}
+                    onClick={() => setIsUploadModalOpen(true)}
                     className="px-5 py-2.5 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold inline-flex items-center gap-2 shadow-sm transition-colors"
                   >
                     <Sparkles className="w-4 h-4 text-amber-300" />
-                    <span>Try Demo Meeting Scenarios</span>
+                    <span>Upload a Meeting Recording</span>
                   </button>
                 </div>
               </div>
@@ -250,12 +254,6 @@ export default function App() {
       </main>
 
       {/* Modals */}
-      <SampleMeetingsModal
-        isOpen={isSampleModalOpen}
-        onClose={() => setIsSampleModalOpen(false)}
-        onSelectScenario={handleSimulateScenario}
-      />
-
       <AudioUploadModal
         isOpen={isUploadModalOpen}
         onClose={() => setIsUploadModalOpen(false)}

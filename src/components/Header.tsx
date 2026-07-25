@@ -1,12 +1,11 @@
 import React from 'react';
-import { Bot, Sparkles, Activity, FileText, Upload, PlusCircle, Radio } from 'lucide-react';
+import { Activity, FileText, Radio } from 'lucide-react';
 import { BotState } from '../types';
 
 interface HeaderProps {
   botState: BotState;
   activeTab: 'dashboard' | 'history';
   setActiveTab: (tab: 'dashboard' | 'history') => void;
-  onOpenSampleModal: () => void;
   onOpenUploadModal: () => void;
 }
 
@@ -14,7 +13,6 @@ export const Header: React.FC<HeaderProps> = ({
   botState,
   activeTab,
   setActiveTab,
-  onOpenSampleModal,
   onOpenUploadModal,
 }) => {
   const isBusy = ['connecting', 'in_meeting', 'transcribing', 'analyzing'].includes(botState);
@@ -77,15 +75,6 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Action Controls */}
         <div className="flex items-center gap-2">
-          <button
-            onClick={onOpenSampleModal}
-            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-md border border-slate-700 transition-colors"
-            title="Load standard demo meeting scenarios"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span>Demo Scenarios</span>
-          </button>
-
           <button
             onClick={onOpenUploadModal}
             className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-md transition-colors shadow-sm"

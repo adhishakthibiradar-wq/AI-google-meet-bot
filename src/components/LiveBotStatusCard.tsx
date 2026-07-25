@@ -157,7 +157,9 @@ export const LiveBotStatusCard: React.FC<LiveBotStatusCardProps> = ({
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Audio Input Monitor</p>
-              <p className="text-[11px] text-slate-300">Capturing live audio stream</p>
+              <p className="text-[11px] text-slate-300">
+                {audioLevel > 0 ? 'Capturing live meeting audio' : 'Waiting for participant audio...'}
+              </p>
             </div>
           </div>
 
@@ -176,8 +178,8 @@ export const LiveBotStatusCard: React.FC<LiveBotStatusCardProps> = ({
           </div>
 
           <div className="text-right hidden sm:block">
-            <p className="text-[10px] text-slate-400 uppercase font-mono">Audio Accuracy</p>
-            <p className="text-xl font-mono font-bold text-emerald-400">98.4%</p>
+            <p className="text-[10px] text-slate-400 uppercase font-mono">Input Level</p>
+            <p className="text-xl font-mono font-bold text-emerald-400">{audioLevel}%</p>
           </div>
         </div>
       )}
