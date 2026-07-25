@@ -1,0 +1,6 @@
+{
+  "name": "AI Google Meet Bot",
+  "description": "Automated AI assistant for Google Meet that joins, records, transcribes, and extracts executive summaries, action items, and task assignments using Gemini AI.",
+  "requestFramePermissions": ["microphone", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
