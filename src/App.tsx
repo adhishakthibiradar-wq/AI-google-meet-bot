@@ -36,8 +36,9 @@ export default function App() {
       setAudioLevel(status.audioLevel || 0);
       setElapsedSeconds(status.elapsedSeconds || 0);
 
-      if (status.state === 'error' && status.activeMeeting?.errorMessage) {
-        setBotError(status.activeMeeting.errorMessage);
+      const failure = status.errorMessage || status.activeMeeting?.errorMessage;
+      if (status.state === 'error' && failure) {
+        setBotError(failure);
       }
 
       if (status.activeMeeting) {
@@ -85,6 +86,9 @@ export default function App() {
       setActiveMeeting(res.meeting);
       setSelectedMeeting(res.meeting);
       await fetchBotStatusAndMeetings();
+    } catch (err: any) {
+      setBotError(err?.message || 'Failed to dispatch the Google Meet bot.');
+      throw err;
     } finally {
       setIsLoadingJoin(false);
     }
@@ -159,9 +163,21 @@ export default function App() {
             {botError && (
               <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-3">
                 <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
-                <div className="space-y-1">
+                <div className="space-y-1 min-w-0">
                   <p className="font-bold">Meeting recording failed</p>
                   <p className="leading-relaxed">{botError}</p>
+                  {logs.length > 0 && (
+                    <details className="pt-1">
+                      <summary className="cursor-pointer font-semibold">Bot diagnostics log</summary>
+                      <ul className="mt-1 space-y-0.5 font-mono text-[10px] text-rose-900/80 max-h-48 overflow-auto">
+                        {logs.map((log) => (
+                          <li key={log.id}>
+                            [{log.source}] {log.message}
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  )}
                 </div>
               </div>
             )}

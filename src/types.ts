@@ -60,6 +60,9 @@ export interface BotStatusResponse {
   state: BotState;
   currentMeetingId: string | null;
   activeMeeting?: Meeting | null;
+  /** Set when the last join/record attempt failed, so the UI can show the real reason. */
+  errorMessage?: string | null;
+  failedMeetingId?: string | null;
   logs: BotLog[];
   audioLevel: number;
   elapsedSeconds: number;
