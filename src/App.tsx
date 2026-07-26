@@ -62,10 +62,23 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetchBotStatusAndMeetings();
-    const interval = setInterval(fetchBotStatusAndMeetings, 2000);
-    return () => clearInterval(interval);
-  }, []);
+  fetchBotStatusAndMeetings();
+
+  const shouldPoll = [
+    "connecting",
+    "in_meeting",
+    "transcribing",
+    "analyzing",
+  ].includes(botState);
+
+  if (!shouldPoll) {
+    return;
+  }
+
+  const interval = setInterval(fetchBotStatusAndMeetings, 2000);
+
+  return () => clearInterval(interval);
+}, [botState]);
 
   // Handle Dispatching Bot to Meet URL
   const handleJoinMeeting = async (

@@ -1,3 +1,4 @@
+import dns from "node:dns";
 import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
@@ -5,6 +6,8 @@ import { createServer as createViteServer } from 'vite';
 import meetingsRouter from './server/routes/meetings.js';
 import { logger } from './server/utilities/logger.js';
 import { connectDB } from './server/database/mongodb.js';
+
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 dotenv.config();
 

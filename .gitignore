@@ -8,3 +8,8 @@ coverage/
 !.env.example
 .env
 recordings/screenshots/
+# Runtime meeting data
+data/meetings.json.bak
+
+# Generated recordings
+recordings/
