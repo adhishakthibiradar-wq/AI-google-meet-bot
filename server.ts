@@ -4,10 +4,14 @@ import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
 import meetingsRouter from './server/routes/meetings.js';
 import { logger } from './server/utilities/logger.js';
+import { connectDB } from './server/database/mongodb.js';
 
 dotenv.config();
 
 async function startServer() {
+
+  await connectDB();
+  
   const app = express();
   const PORT = 3000;
 

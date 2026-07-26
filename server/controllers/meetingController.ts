@@ -49,19 +49,19 @@ export class MeetingController {
     }
   }
 
-  public getBotStatus(req: Request, res: Response): void {
-    const status = botAutomationService.getStatus();
+  public async getBotStatus(req: Request, res: Response): Promise<void> {
+    const status = await botAutomationService.getStatus();
     res.status(200).json(status);
-  }
+}
 
-  public getAllMeetings(req: Request, res: Response): void {
-    const meetings = db.getAllMeetings();
-    res.status(200).json({ meetings });
-  }
+  public async getAllMeetings(req: Request, res: Response): Promise<void> {
+  const meetings = await db.getAllMeetings();
+  res.status(200).json({ meetings });
+}
 
-  public getMeetingById(req: Request, res: Response): void {
-    const { id } = req.params;
-    const meeting = db.getMeetingById(id);
+  public async getMeetingById(req: Request, res: Response): Promise<void> {
+  const { id } = req.params;
+  const meeting = await db.getMeetingById(id);
 
     if (!meeting) {
       res.status(404).json({ error: 'Meeting not found' });
@@ -71,9 +71,9 @@ export class MeetingController {
     res.status(200).json({ meeting });
   }
 
-  public deleteMeeting(req: Request, res: Response): void {
+  public async deleteMeeting(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
-    const success = db.deleteMeeting(id);
+    const success = await db.deleteMeeting(id);
 
     if (!success) {
       res.status(404).json({ error: 'Meeting not found or already deleted' });
@@ -87,7 +87,7 @@ export class MeetingController {
   public async reanalyzeMeeting(req: Request, res: Response): Promise<void> {
     try {
       const { id } = req.params;
-      const meeting = db.getMeetingById(id);
+      const meeting = await db.getMeetingById(id);
 
       if (!meeting) {
         res.status(404).json({ error: 'Meeting not found' });
@@ -102,7 +102,7 @@ export class MeetingController {
       logger.info(`Re-running Gemini AI analysis for meeting ID: ${id}`, 'ai');
       const newSummary = await aiAnalysisService.analyzeTranscript(meeting.transcript, meeting.title);
 
-      const updated = db.updateMeeting(id, { summary: newSummary });
+      const updated = await db.updateMeeting(id, { summary: newSummary });
       res.status(200).json({ message: 'Analysis updated successfully', meeting: updated });
     } catch (err: any) {
       res.status(500).json({ error: err?.message || 'Re-analysis failed' });
@@ -125,7 +125,7 @@ export class MeetingController {
           meetingTitle
         );
 
-        const newMeeting = db.saveMeeting({
+        const newMeeting = await db.saveMeeting({
           id: meetingId,
           meetUrl: '',
           title: meetingTitle,
@@ -189,7 +189,7 @@ export class MeetingController {
 
       const summary = await aiAnalysisService.analyzeTranscript(parsedSegments, meetingTitle);
 
-      const meeting = db.saveMeeting({
+      const meeting = await db.saveMeeting({
         id: meetingId,
         meetUrl: '',
         title: meetingTitle,

@@ -86,10 +86,10 @@ export class BotAutomationService {
     }
   }
 
-  public getStatus() {
+  public async getStatus() {
     let activeMeeting: Meeting | null = null;
     if (this.activeMeetingId) {
-      activeMeeting = db.getMeetingById(this.activeMeetingId) || null;
+      activeMeeting = await db.getMeetingById(this.activeMeetingId);
     }
 
     return {
@@ -145,7 +145,7 @@ export class BotAutomationService {
       createdAt: new Date().toISOString(),
     };
 
-    db.saveMeeting(newMeeting);
+    await db.saveMeeting(newMeeting);
     logger.info(`Initiating bot join sequence for URL: ${validation.normalizedUrl}`, 'join');
 
     // Browser automation runs in the background; the UI polls /status for progress.
@@ -207,7 +207,7 @@ export class BotAutomationService {
       logger.success('Bot admitted into the Google Meet session', 'join');
 
       this.activeRecording = await recordingService.startRecording(this.page, meetingId);
-      db.updateMeeting(meetingId, {
+      await db.updateMeeting(meetingId,{
         status: 'in_meeting',
         recordingPath: this.activeRecording.filePath,
       });
@@ -453,10 +453,10 @@ export class BotAutomationService {
 
   private startTimer() {
     this.stopTimer();
-    this.timerInterval = setInterval(() => {
+    this.timerInterval = setInterval(async() => {
       this.elapsedSeconds += 1;
       if (this.activeMeetingId) {
-        db.updateMeeting(this.activeMeetingId, { durationSeconds: this.elapsedSeconds });
+        await db.updateMeeting(this.activeMeetingId,{ durationSeconds: this.elapsedSeconds });
       }
     }, 1000);
   }
@@ -491,7 +491,7 @@ export class BotAutomationService {
     await this.closeBrowser();
 
     this.currentState = 'error';
-    db.updateMeeting(meetingId, {
+    await db.updateMeeting(meetingId,{
       status: 'error',
       errorMessage: message,
       endTime: new Date().toISOString(),
@@ -520,7 +520,7 @@ export class BotAutomationService {
 
     try {
       this.currentState = 'transcribing';
-      db.updateMeeting(meetingId, {
+      await db.updateMeeting(meetingId, {
         status: 'transcribing',
         endTime: new Date().toISOString(),
         durationSeconds: this.elapsedSeconds,
@@ -530,12 +530,13 @@ export class BotAutomationService {
       this.activeRecording = null;
       await this.closeBrowser();
 
-      db.updateMeeting(meetingId, {
+      await db.updateMeeting(meetingId, {
         recordingPath: recordingResult.filePath,
         audioSizeMb: recordingResult.sizeMb,
       });
 
-      const meetingTitle = db.getMeetingById(meetingId)?.title || 'Google Meet';
+      const meeting = await db.getMeetingById(meetingId);
+      const meetingTitle = meeting?.title || "Google Meet";
 
       // Transcript and insights are produced by Gemini from the saved recording only.
       const { transcript, summary } = await transcriptionService.transcribeRecording(
@@ -545,10 +546,10 @@ export class BotAutomationService {
       );
 
       this.currentState = 'analyzing';
-      db.updateMeeting(meetingId, { status: 'analyzing', transcript });
+      await db.updateMeeting(meetingId, { status: 'analyzing', transcript });
 
       this.currentState = 'completed';
-      const finalMeeting = db.updateMeeting(meetingId, {
+      const finalMeeting = await db.updateMeeting(meetingId, {
         status: 'completed',
         summary,
         logs: logger.getLogs(),
